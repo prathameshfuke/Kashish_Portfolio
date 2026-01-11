@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion'
 import './Projects.css'
 
 const glossEditImages = [
@@ -23,6 +23,21 @@ const signageImages = [
     '/assets/projects/signage/ChatGPT Image Dec 9, 2025 at 11_15_01 AM.png',
 ]
 
+const myClosetImages = [
+    '/assets/projects/my-closet/Screenshot 2026-01-11 203246.png',
+    '/assets/projects/my-closet/Screenshot 2026-01-11 203307.png',
+    '/assets/projects/my-closet/Screenshot 2026-01-11 203319.png',
+    '/assets/projects/my-closet/Screenshot 2026-01-11 203333.png',
+]
+
+const littleBookImages = [
+    '/assets/projects/little-book-peace/book-mockup-v6-front-view.png',
+    '/assets/projects/little-book-peace/Hardcover Book Mockup Close Up Poster.png',
+    '/assets/projects/little-book-peace/Open Hardcover Book Mockup.png',
+    '/assets/projects/little-book-peace/Hardcover Books Mockup Front And Back View.png',
+    '/assets/projects/little-book-peace/Flower Page Border A3 Landscape Poster (1).png',
+]
+
 // Animation variants
 const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -40,6 +55,53 @@ const scaleIn = {
         scale: 1,
         transition: { duration: 0.6, ease: "easeOut" }
     }
+}
+
+// 3D Tilt Image Component - applies only to image area
+function TiltImage({ children }) {
+    const ref = useRef(null)
+    const x = useMotionValue(0)
+    const y = useMotionValue(0)
+
+    const mouseXSpring = useSpring(x, { stiffness: 400, damping: 40 })
+    const mouseYSpring = useSpring(y, { stiffness: 400, damping: 40 })
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"])
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"])
+
+    const handleMouseMove = (e) => {
+        const rect = ref.current.getBoundingClientRect()
+        const mouseX = e.clientX - rect.left
+        const mouseY = e.clientY - rect.top
+        const xPct = mouseX / rect.width - 0.5
+        const yPct = mouseY / rect.height - 0.5
+        x.set(xPct)
+        y.set(yPct)
+    }
+
+    const handleMouseLeave = () => {
+        x.set(0)
+        y.set(0)
+    }
+
+    return (
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+                perspective: 1000,
+            }}
+            className="tilt-image-container"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+        >
+            {children}
+        </motion.div>
+    )
 }
 
 // Carousel Component with animations
@@ -102,26 +164,29 @@ function ImageCarousel({ images, projectName }) {
                     ‹
                 </motion.button>
 
-                <div className="carousel-viewport">
-                    <AnimatePresence initial={false} custom={direction} mode="wait">
-                        <motion.img
-                            key={currentImage}
-                            src={images[currentImage]}
-                            alt={`${projectName} ${currentImage + 1}`}
-                            className="carousel-image"
-                            custom={direction}
-                            variants={slideVariants}
-                            initial="enter"
-                            animate="center"
-                            exit="exit"
-                            transition={{
-                                x: { type: "spring", stiffness: 300, damping: 30 },
-                                opacity: { duration: 0.3 },
-                                scale: { duration: 0.3 }
-                            }}
-                        />
-                    </AnimatePresence>
-                </div>
+                {/* 3D Tilt applied to image viewport */}
+                <TiltImage>
+                    <div className="carousel-viewport">
+                        <AnimatePresence initial={false} custom={direction} mode="wait">
+                            <motion.img
+                                key={currentImage}
+                                src={images[currentImage]}
+                                alt={`${projectName} ${currentImage + 1}`}
+                                className="carousel-image"
+                                custom={direction}
+                                variants={slideVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{
+                                    x: { type: "spring", stiffness: 300, damping: 30 },
+                                    opacity: { duration: 0.3 },
+                                    scale: { duration: 0.3 }
+                                }}
+                            />
+                        </AnimatePresence>
+                    </div>
+                </TiltImage>
 
                 <motion.button
                     className="carousel-btn next"
@@ -256,15 +321,80 @@ function Projects() {
                     </motion.div>
                 </motion.section>
 
-                <motion.div
-                    className="more-projects mt-xl"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.5 }}
+                {/* Project 3: My Closet App */}
+                <motion.section
+                    className="project-showcase mt-xl"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
                 >
-                    <p className="text-muted text-center">More projects coming soon...</p>
-                </motion.div>
+                    <motion.div className="project-header" variants={fadeInUp}>
+                        <span className="project-category-tag">UI/UX Design</span>
+                        <h2 className="project-name">My Closet</h2>
+                        <p className="project-tagline">Fashion App • 3D Virtual Styling • Mobile UI</p>
+                    </motion.div>
+
+                    <ImageCarousel images={myClosetImages} projectName="My Closet" />
+
+                    <motion.div
+                        className="project-description"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <p>
+                            <strong>My Closet</strong> is a conceptual fashion app designed to simplify everyday
+                            outfit selection through a personalized virtual styling experience. The app allows
+                            users to visualize clothes from their own wardrobe on a customizable 3D human model,
+                            tailored to individual attributes such as body shape, height, weight, and skin tone.
+                        </p>
+                        <p className="mt-md">
+                            This project was entirely designed by me—from brand identity and logo design to user
+                            flows, wireframes, UI screens, and interaction logic—focusing on intuitive navigation,
+                            inclusivity, and a clean, functional visual language.
+                        </p>
+                    </motion.div>
+                </motion.section>
+
+                {/* Project 4: The Little Book of Peace */}
+                <motion.section
+                    className="project-showcase mt-xl"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
+                >
+                    <motion.div className="project-header" variants={fadeInUp}>
+                        <span className="project-category-tag">Publication Design</span>
+                        <h2 className="project-name">The Little Book of Peace</h2>
+                        <p className="project-tagline">Children's Book • Interactive Design • Jain Values</p>
+                    </motion.div>
+
+                    <ImageCarousel images={littleBookImages} projectName="The Little Book of Peace" />
+
+                    <motion.div
+                        className="project-description"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <p>
+                            <strong>The Little Book of Peace</strong> is an interactive children's book designed
+                            to gently introduce Jain values, Paryushan traditions, and everyday mindfulness in a
+                            way that feels playful, calming, and age-appropriate. Created for children aged 5–12,
+                            this project translates concepts like ahimsa, forgiveness, and inner peace into
+                            engaging stories, illustrations, and hands-on activities.
+                        </p>
+                        <p className="mt-md">
+                            The book blends creative visuals, interactive exercises, and thoughtful prompts to
+                            make learning experiential rather than instructional. What's showcased here are the
+                            final mock-ups and visual direction of the book.
+                        </p>
+                    </motion.div>
+                </motion.section>
             </div>
 
             <div className="flowers-fixed">

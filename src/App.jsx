@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Work from './pages/Work'
@@ -7,9 +8,21 @@ import Contact from './pages/Contact'
 import { MouseSparkles } from './components/Interactive3D'
 import './App.css'
 
+// Scroll to top on route change
+function ScrollToTop() {
+    const { pathname } = useLocation()
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [pathname])
+
+    return null
+}
+
 function App() {
     return (
         <Router>
+            <ScrollToTop />
             <div className="app">
                 {/* Mouse trail sparkles for girly effect */}
                 <MouseSparkles />
@@ -47,3 +60,4 @@ function App() {
 }
 
 export default App
+

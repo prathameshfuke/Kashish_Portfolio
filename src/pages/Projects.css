@@ -17,6 +17,21 @@
     border-radius: 24px;
     padding: var(--space-xl);
     overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+/* 3D Tilt Card Effect */
+.tilt-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.tilt-card:hover {
+    box-shadow:
+        0 25px 50px rgba(255, 182, 217, 0.15),
+        0 0 60px rgba(255, 182, 217, 0.1),
+        inset 0 0 60px rgba(255, 182, 217, 0.03);
 }
 
 .project-header {
@@ -67,6 +82,21 @@
     overflow: hidden;
     border-radius: 16px;
     background: rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Tilt Image Container */
+.tilt-image-container {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.tilt-image-container:hover {
+    box-shadow:
+        0 25px 60px rgba(255, 182, 217, 0.2),
+        0 0 40px rgba(255, 182, 217, 0.1);
 }
 
 .carousel-image {
