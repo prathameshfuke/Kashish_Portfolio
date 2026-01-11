@@ -1,0 +1,161 @@
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.home-content {
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home-title {
+    font-weight: 400;
+    line-height: 0.9;
+}
+
+/* Soft glow effect for Kashish Oswal name */
+.glow-title {
+    text-shadow:
+        0 0 20px rgba(255, 182, 217, 0.4),
+        0 0 40px rgba(255, 182, 217, 0.3),
+        0 0 60px rgba(255, 182, 217, 0.2),
+        0 0 80px rgba(255, 182, 217, 0.1);
+}
+
+.title-line {
+    display: block;
+    font-size: clamp(4rem, 15vw, 12rem);
+    letter-spacing: -0.02em;
+    font-family: 'America Calligraphy', cursive;
+}
+
+.title-line span {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.home-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: var(--pink-light);
+    margin-top: var(--space-lg);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.home-tagline {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+    letter-spacing: 0.1em;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.scroll-arrow {
+    font-size: 1.2rem;
+    color: var(--pink-light);
+}
+
+/* Collage Sticker Positions */
+.home-page .sticker {
+    cursor: grab;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
+}
+
+.home-page .sticker img {
+    pointer-events: auto;
+}
+
+.home-page .sticker-1 {
+    top: 12%;
+    left: 3%;
+    width: 180px;
+}
+
+.home-page .sticker-2 {
+    top: 8%;
+    right: 12%;
+    width: 80px;
+}
+
+.home-page .sticker-3 {
+    bottom: 20%;
+    left: 5%;
+    width: 140px;
+}
+
+.home-page .sticker-4 {
+    bottom: 15%;
+    right: 5%;
+    width: 90px;
+}
+
+.home-page .sticker-5 {
+    top: 50%;
+    left: 2%;
+    width: 70px;
+}
+
+.home-page .sticker-6 {
+    top: 65%;
+    right: 3%;
+    width: 80px;
+}
+
+.home-page .sticker-7 {
+    bottom: 8%;
+    left: 20%;
+    width: 60px;
+}
+
+.home-page .sticker-8 {
+    top: 25%;
+    right: 3%;
+    width: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .home-page .sticker {
+        transform: scale(0.75);
+    }
+}
+
+@media (max-width: 768px) {
+    .home-page .sticker {
+        transform: scale(0.6);
+    }
+
+    /* Hide some stickers on mobile */
+    .home-page .sticker-5,
+    .home-page .sticker-6,
+    .home-page .sticker-7,
+    .home-page .sticker-8 {
+        display: none;
+    }
+
+    .scroll-indicator {
+        bottom: -60px;
+    }
+}

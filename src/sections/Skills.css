@@ -1,0 +1,112 @@
+.skills {
+    background: linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%);
+    position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+}
+
+.skill-category {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+}
+
+.skill-category:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--gray-light);
+}
+
+.category-icon {
+    font-size: 2rem;
+}
+
+.category-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.skill-item {
+    transition: transform var(--transition-base);
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.skill-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--black-soft);
+}
+
+.skill-percent {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--coral-warm);
+}
+
+.skills .progress-bar {
+    height: 10px;
+    background: var(--gray-light);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.skills .progress-fill {
+    height: 100%;
+    background: var(--gradient-sunset);
+    border-radius: var(--radius-full);
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-category.visible .progress-fill,
+.skills .fade-in-up.visible .progress-fill {
+    /* Width is set inline */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-category {
+        padding: var(--space-lg);
+    }
+
+    .category-header h3 {
+        font-size: 1.1rem;
+    }
+}

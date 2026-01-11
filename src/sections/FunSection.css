@@ -1,0 +1,218 @@
+.fun-section {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--pink-soft) 50%, var(--cream) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sticker Carousel */
+.sticker-carousel {
+    overflow: hidden;
+    margin-bottom: var(--space-4xl);
+    padding: var(--space-lg) 0;
+}
+
+.sticker-carousel .carousel-track {
+    display: flex;
+    gap: var(--space-xl);
+    animation: scroll 40s linear infinite;
+    width: max-content;
+}
+
+.sticker-carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.sticker-item {
+    flex-shrink: 0;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.sticker-item:hover,
+.sticker-item.active {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: var(--shadow-pink);
+}
+
+.sticker-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.sticker-caption {
+    font-size: 0.85rem;
+    color: var(--gray-dark);
+    text-align: center;
+}
+
+/* Fun Grid */
+.fun-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+}
+
+.fun-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.fun-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.fun-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-md);
+    color: var(--black);
+}
+
+.fun-card p {
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    margin-top: var(--space-md);
+}
+
+/* Expressions Card */
+.expressions-card {
+    grid-column: span 1;
+}
+
+.expressions-card img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: var(--radius-lg);
+}
+
+/* Quote Card */
+.quote-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-pink);
+}
+
+.quote-content {
+    text-align: center;
+}
+
+.quote-icon {
+    width: 100px;
+    margin-bottom: var(--space-md);
+}
+
+.quote-card h4 {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+/* Personality Card */
+.personality-card {
+    background: var(--cream-light);
+}
+
+.personality-traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+}
+
+.trait {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: white;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    color: var(--black-soft);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Interactive Quote */
+.interactive-quote {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--space-3xl);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.interactive-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-style: italic;
+    color: var(--black);
+    line-height: 1.4;
+    margin-bottom: var(--space-md);
+}
+
+.highlight-word {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
+
+.quote-credit {
+    font-size: 1rem;
+    color: var(--gray-dark);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .fun-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .expressions-card {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .fun-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expressions-card {
+        grid-column: span 1;
+    }
+
+    .sticker-item {
+        width: 150px;
+    }
+
+    .sticker-item img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .interactive-quote {
+        padding: var(--space-xl);
+    }
+
+    .sticker-item {
+        width: 130px;
+    }
+}

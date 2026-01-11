@@ -1,0 +1,489 @@
+/* ==========================================
+   KASHISH OSWAL PORTFOLIO - DARK COLLAGE DESIGN
+   ========================================== */
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'America Calligraphy';
+  src: url('/fonts/america-calligraphy-font/AmericaCalligraphy-8MW3B.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Melanin';
+  src: url('/fonts/melanin-font/Melanin-R9xZA.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variables */
+:root {
+  /* Colors - Dark Theme */
+  --bg-dark: #0a0a0a;
+  --bg-dark-secondary: #121212;
+  --text-light: #ffffff;
+  --text-cream: #f5f0e8;
+  --text-muted: #a0a0a0;
+
+  /* Accent Colors */
+  --pink-light: #FFB6D9;
+  --pink-soft: #FFC8DD;
+  --coral: #FF8FAB;
+  --sage: #A8D5BA;
+  --cream: #f5f0e8;
+  --yellow: #ffd700;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-script: 'America Calligraphy', cursive;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /* Transitions */
+  --transition: 0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--pink-soft);
+  color: var(--bg-dark);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-light);
+  border-radius: 4px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--text-cream);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* App Container */
+.app {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: var(--space-md) var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-xl);
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-cream);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--pink-light);
+}
+
+.nav-link.active::after {
+  content: '✦';
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  font-size: 0.6rem;
+  color: var(--pink-light);
+}
+
+/* Page Container */
+.page {
+  min-height: 100vh;
+  padding: 100px var(--space-xl) var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scattered Sticker - Core style for collage elements */
+.sticker {
+  position: absolute;
+  transition: transform 0.4s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  z-index: 10;
+}
+
+.sticker:hover {
+  transform: scale(1.1) rotate(5deg);
+  z-index: 20;
+}
+
+/* Flowers sticker - at page bottom right (only visible when scrolled to bottom) */
+.flowers-fixed {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  z-index: 5;
+  pointer-events: none;
+  animation: none !important;
+  transform: none !important;
+}
+
+.flowers-fixed img {
+  width: 100%;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+  .flowers-fixed {
+    width: 120px;
+  }
+}
+
+.sticker img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Float animations for stickers */
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(-3deg);
+  }
+}
+
+@keyframes float3 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.float-1 {
+  animation: float1 4s ease-in-out infinite;
+}
+
+.float-2 {
+  animation: float2 5s ease-in-out infinite;
+}
+
+.float-3 {
+  animation: float3 6s ease-in-out infinite;
+}
+
+/* ==========================================
+   3D INTERACTIVE EFFECTS
+   ========================================== */
+
+/* 3D Tilt Effect Base */
+.tilt-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+  }
+}
+
+/* 3D Card Hover Effect */
+.project-card,
+.experience-card,
+.contact-link-item {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(10px);
+  box-shadow:
+    0 20px 40px rgba(255, 182, 217, 0.2),
+    0 0 30px rgba(255, 182, 217, 0.1);
+}
+
+/* Sticker 3D hover */
+.sticker {
+  transform-style: preserve-3d;
+}
+
+.sticker:hover {
+  transform: perspective(500px) rotateY(15deg) rotateX(-10deg) scale(1.15) !important;
+  filter: drop-shadow(0 20px 30px rgba(255, 182, 217, 0.4));
+}
+
+/* Skill badge 3D pop */
+.skill-badge {
+  transform-style: preserve-3d;
+}
+
+.skill-badge:hover {
+  transform: perspective(500px) translateZ(20px) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 182, 217, 0.3);
+}
+
+/* Page Title - Large centered text */
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-cream);
+  line-height: 1;
+  position: relative;
+  z-index: 5;
+}
+
+.page-title-small {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+/* Cursive Title - America Calligraphy - Pink for girly vibe */
+.cursive-title {
+  font-family: 'America Calligraphy', cursive !important;
+  font-weight: normal;
+  color: var(--pink-light) !important;
+  text-shadow: 0 0 30px rgba(255, 182, 217, 0.3);
+}
+
+/* Skill Badges - No percentages */
+.skill-badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--text-cream);
+  color: var(--bg-dark);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 20px;
+  margin: 4px;
+  transition: var(--transition);
+}
+
+.skill-badge:hover {
+  background: var(--pink-light);
+  transform: translateY(-3px);
+}
+
+/* Card Style */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  backdrop-filter: blur(10px);
+}
+
+/* Contact Links */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.2rem;
+  color: var(--text-cream);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.contact-link:hover {
+  color: var(--pink-light);
+  padding-left: var(--space-sm);
+}
+
+/* Experience Item */
+.experience-item {
+  padding: var(--space-lg) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.experience-company {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-cream);
+  margin-bottom: var(--space-xs);
+}
+
+.experience-role {
+  color: var(--pink-light);
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.experience-period {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mt-sm {
+  margin-top: var(--space-sm);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.mt-lg {
+  margin-top: var(--space-lg);
+}
+
+.mt-xl {
+  margin-top: var(--space-xl);
+}
+
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    padding: var(--space-sm);
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: rgba(10, 10, 10, 0.9);
+  }
+
+  .nav-links {
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+  }
+
+  .page {
+    padding: 120px var(--space-sm) var(--space-lg);
+  }
+
+  .sticker {
+    transform: scale(0.7);
+  }
+}

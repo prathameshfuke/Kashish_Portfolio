@@ -1,0 +1,212 @@
+.about-page {
+    padding-top: 120px;
+    padding-bottom: var(--space-2xl);
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.about-content {
+    margin-top: var(--space-xl);
+}
+
+.about-bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--text-cream);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Education */
+.education-item {
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-sm);
+    border-left: 2px solid var(--pink-light);
+}
+
+.edu-degree {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-cream);
+    font-weight: 500;
+}
+
+.edu-school {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Tools Grid with Icons */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--space-md);
+}
+
+.tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.tool-item:hover {
+    background: rgba(255, 182, 217, 0.1);
+    border-color: var(--pink-light);
+    transform: translateY(-5px);
+}
+
+.tool-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.tool-name {
+    font-size: 0.85rem;
+    color: var(--text-cream);
+    text-align: center;
+}
+
+/* Skills Row */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Experience - Expandable Cards */
+.experiences-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: var(--space-md) var(--space-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--pink-light);
+}
+
+.experience-card.expanded {
+    background: rgba(255, 182, 217, 0.08);
+    border-color: var(--pink-light);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.experience-info {
+    flex: 1;
+}
+
+.experience-role {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--pink-light);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.experience-company {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.experience-toggle {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--text-cream);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-toggle {
+    background: var(--pink-light);
+    color: var(--bg-dark);
+}
+
+.experience-description {
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+.experience-description p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Minimal sticker */
+.about-sticker-1 {
+    top: 15%;
+    right: 5%;
+    width: 120px;
+}
+
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .tool-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .about-sticker-1 {
+        display: none;
+    }
+}

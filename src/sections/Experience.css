@@ -1,0 +1,207 @@
+.experience {
+    background: var(--cream-light);
+    position: relative;
+}
+
+.experience .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 50px;
+}
+
+.experience .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gray-light);
+    border-radius: var(--radius-full);
+}
+
+.experience .timeline-progress {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 4px;
+    background: var(--gradient-sunset);
+    border-radius: var(--radius-full);
+    transition: height 0.3s ease;
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--space-2xl);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience .timeline-dot {
+    position: absolute;
+    left: -38px;
+    top: 30px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border: 4px solid var(--pink-light);
+    border-radius: 50%;
+    z-index: 2;
+    transition: all var(--transition-base);
+}
+
+.timeline-item:hover .timeline-dot {
+    background: var(--coral-warm);
+    border-color: var(--coral-warm);
+    transform: scale(1.2);
+    box-shadow: var(--shadow-pink);
+}
+
+/* Experience Card */
+.experience-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px) translateX(5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--pink-light);
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.card-title {
+    flex: 1;
+    min-width: 200px;
+}
+
+.card-title h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--black);
+}
+
+.role {
+    font-size: 1rem;
+    color: var(--coral-warm);
+    font-weight: 500;
+}
+
+.experience .badge {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.8rem;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.badge-intern {
+    background: var(--sage-light);
+    color: var(--black);
+}
+
+.badge-freelance {
+    background: var(--pink-soft);
+    color: var(--black);
+}
+
+.period {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--gray-dark);
+    margin-bottom: var(--space-lg);
+}
+
+.description {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.description li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--black-soft);
+}
+
+.description li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--pink-light);
+    font-size: 0.7rem;
+    top: 4px;
+}
+
+.description li:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .experience .timeline {
+        padding-left: 30px;
+    }
+
+    .experience .timeline::before,
+    .experience .timeline-progress {
+        left: 10px;
+        width: 3px;
+    }
+
+    .experience .timeline-dot {
+        left: -23px;
+        width: 16px;
+        height: 16px;
+        border-width: 3px;
+        top: 25px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .experience .badge {
+        align-self: flex-start;
+    }
+
+    .card-icon {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-card {
+        padding: var(--space-lg);
+    }
+
+    .card-title h3 {
+        font-size: 1.1rem;
+    }
+}

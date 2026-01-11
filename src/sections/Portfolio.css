@@ -1,0 +1,196 @@
+.portfolio {
+    background: var(--cream);
+    position: relative;
+}
+
+/* Filters */
+.portfolio-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.filter-btn {
+    padding: var(--space-sm) var(--space-xl);
+    background: white;
+    border: 2px solid var(--gray-light);
+    border-radius: var(--radius-full);
+    font-family: var(--font-accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--black-soft);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.filter-btn:hover {
+    border-color: var(--pink-light);
+    color: var(--black);
+}
+
+.filter-btn.active {
+    background: var(--gradient-sunset);
+    border-color: transparent;
+    color: var(--black);
+    box-shadow: var(--shadow-pink);
+}
+
+/* Counter */
+.project-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+}
+
+.counter-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.counter-label {
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Bento Grid Overrides */
+.portfolio .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+}
+
+.portfolio .bento-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.portfolio .bento-item:nth-child(4) {
+    grid-column: span 2;
+}
+
+.portfolio .bento-item {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    animation: fadeInUp 0.5s ease both;
+}
+
+.portfolio .bento-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.bento-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.project-emoji {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.bento-content h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: var(--space-sm);
+}
+
+.bento-content p {
+    font-size: 0.9rem;
+    color: var(--black-soft);
+    opacity: 0.8;
+}
+
+.portfolio .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all var(--transition-base);
+}
+
+.portfolio .bento-item:hover .bento-overlay {
+    opacity: 1;
+}
+
+.portfolio .bento-item:hover .bento-content {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.view-text {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* CTA */
+.portfolio-cta {
+    text-align: center;
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--gray-light);
+}
+
+.portfolio-cta p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.1rem;
+    color: var(--gray-dark);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .portfolio .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+    }
+
+    .portfolio .bento-item:nth-child(1),
+    .portfolio .bento-item:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .portfolio .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+    }
+
+    .portfolio .bento-item {
+        grid-column: span 1 !important;
+    }
+
+    .filter-btn {
+        padding: var(--space-xs) var(--space-lg);
+        font-size: 0.85rem;
+    }
+}
