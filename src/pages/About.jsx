@@ -8,7 +8,7 @@ const skillsWithIcons = [
     { name: 'InDesign', icon: '/assets/icons/Adobe_InDesign_CC_icon.svg.png' },
     { name: 'Premiere Pro', icon: '/assets/icons/Adobe_Premiere_Pro_CC_icon.svg.png' },
     { name: 'Figma', icon: '/assets/icons/Figma-logo.svg.png' },
-    { name: 'Canva', icon: '/assets/icons/images.jpg' },
+    { name: 'Canva', icon: '/assets/icons/image.jpg' },
 ]
 
 const designSkills = ['Branding & Visual Identity', 'Layout & Typography', 'UI/UX Design', 'Social Media Creatives', 'Packaging Design']
@@ -110,19 +110,11 @@ function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            {/* Sticker */}
-            <motion.div
-                className="sticker about-sticker-1 float-2"
-                initial={{ x: 100, opacity: 0, rotate: 20 }}
-                animate={{ x: 0, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-            >
-                <img src="/assets/92dbb15dee072c25abfb0c38d3472be1.png" alt="Hello sticker" />
-            </motion.div>
+
 
             <div className="about-container">
                 <motion.h1
-                    className="page-title cursive-title"
+                    className="page-title"
                     initial={{ opacity: 0, y: -30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -279,9 +271,7 @@ function About() {
                 </div>
             </div>
 
-            <div className="flowers-fixed">
-                <img src="/assets/_-removebg-preview.png" alt="Flowers" />
-            </div>
+
         </motion.div>
     )
 }

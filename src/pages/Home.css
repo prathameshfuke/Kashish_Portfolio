@@ -1,130 +1,293 @@
+/* ============================================
+   TEMPLATE MATCH - ABSOLUTE POSITIONING
+   Each element is freely movable with position absolute
+   ============================================ */
+
+/* Reset and Base */
+.hero-text-hello,
+.hero-text-im,
+.hero-text-name {
+    font-family: 'PP Editorial New', serif;
+    text-transform: uppercase;
+    color: #FFB6D9;
+    margin: 0;
+    padding: 0;
+}
+
 .home-page {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     min-height: 100vh;
-    overflow: hidden;
+    background: #000;
+    background-image: radial-gradient(#222 1px, transparent 1px);
+    background-size: 25px 25px;
+    overflow-x: hidden;
 }
 
-.home-content {
-    text-align: center;
-    z-index: 5;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.home-title {
-    font-weight: 400;
-    line-height: 0.9;
-}
-
-/* Soft glow effect for Kashish Oswal name */
-.glow-title {
-    text-shadow:
-        0 0 20px rgba(255, 182, 217, 0.4),
-        0 0 40px rgba(255, 182, 217, 0.3),
-        0 0 60px rgba(255, 182, 217, 0.2),
-        0 0 80px rgba(255, 182, 217, 0.1);
-}
-
-.title-line {
-    display: block;
-    font-size: clamp(4rem, 15vw, 12rem);
-    letter-spacing: -0.02em;
-    font-family: 'America Calligraphy', cursive;
-}
-
-.title-line span {
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.home-subtitle {
-    font-family: var(--font-sans);
-    font-size: 1.2rem;
-    color: var(--pink-light);
-    margin-top: var(--space-lg);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
-
-.home-tagline {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--text-muted);
-    margin-top: var(--space-sm);
-    letter-spacing: 0.1em;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: -100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-}
-
-.scroll-arrow {
-    font-size: 1.2rem;
-    color: var(--pink-light);
-}
-
-/* Scroll Hint */
-.scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
+.home-container {
+    width: 100%;
+    max-width: 1500px;
     margin: 0 auto;
-    width: fit-content;
+    padding: 0 60px;
+}
+
+.hero-section {
+    padding-top: 60px;
+    position: relative;
+}
+
+/* ============================================
+   HERO GRID - Container with relative positioning
+   All children use absolute positioning for free movement
+   ============================================ */
+.hero-grid {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    min-height: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   HELLO - Freely positioned
+   ============================================ */
+.hero-text-hello {
+    position: absolute;
+    left: 217px;
+    top: 62px;
+    font-size: 8rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    z-index: 2;
+}
+
+/* ============================================
+   I'M - Freely positioned
+   ============================================ */
+.hero-text-im {
+    position: absolute;
+    left: 213px;
+    top: 199px;
+    font-size: 8rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0.85;
+    z-index: 2;
+}
+
+/* ============================================
+   LEFT DECORATIONS - Freely positioned
+   ============================================ */
+.hero-left-deco {
+    position: absolute;
+    left: 230px;
+    top: 320px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 8px;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
+    gap: 30px;
+    z-index: 2;
+}
+
+.deco-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.deco-text {
+    font-family: 'PP Editorial New', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
-    opacity: 0.7;
-    z-index: 10;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    letter-spacing: 0.08em;
+    color: #FFB6D9;
+    line-height: 1.3;
 }
 
-.scroll-hint .scroll-arrow {
-    font-size: 1.5rem;
-    color: var(--pink-light);
+.deco-arrow {
+    font-size: 1.2rem;
+    color: #FFB6D9;
+}
+
+/* ============================================
+   IMAGE - Freely positioned (centered)
+   ============================================ */
+.hero-image-container {
+    position: absolute;
+    left: 726px;
+    top: 61px;
+    width: 350px;
+    height: 480px;
+    z-index: 3;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   BADGE - Freely positioned
+   ============================================ */
+.hero-badge {
+    position: absolute;
+    left: 1188px;
+    top: 216px;
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: content-box;
+    background: #000;
+    border: 2px solid #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 4;
+    transform: rotate(-5deg);
+    white-space: nowrap;
+}
+
+.badge-text {
+    font-family: 'PP Editorial New', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: #fff;
     text-align: center;
+    display: block;
 }
 
-/* Palette Section - Seamless with page */
+/* ============================================
+   KASHISH - Freely positioned
+   ============================================ */
+.hero-text-name {
+    position: absolute;
+    left: 208px;
+    top: 336px;
+    font-size: 6.5rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 0.85;
+    z-index: 2;
+}
+
+/* ============================================
+   INTRO - Freely positioned
+   ============================================ */
+.hero-intro {
+    position: absolute;
+    left: 210px;
+    top: 454px;
+    width: 380px;
+    text-align: left;
+    z-index: 2;
+}
+
+.hero-intro p {
+    color: #bbb;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hero-decoration {
+    margin-top: 20px;
+}
+
+.hero-decoration svg path {
+    fill: #FFB6D9;
+}
+
+/* ============================================
+   3D Palette Section
+   ============================================ */
 .palette-section {
-    min-height: auto;
+    min-height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
-    padding: 40px 20px;
-    position: relative;
-    overflow: visible;
+    margin-top: 80px;
+}
+
+/* ============================================
+   RESPONSIVE - Switch to flex column on smaller screens
+   ============================================ */
+@media (max-width: 1100px) {
+    .home-container {
+        padding: 0 30px;
+    }
+
+    .hero-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        min-height: auto;
+    }
+
+    .hero-text-hello,
+    .hero-text-im,
+    .hero-text-name,
+    .hero-image-container,
+    .hero-badge,
+    .hero-intro,
+    .hero-left-deco {
+        position: static;
+        transform: none;
+    }
+
+    .hero-text-hello,
+    .hero-text-im,
+    .hero-text-name {
+        font-size: 5rem;
+        text-align: center;
+    }
+
+    .hero-text-im {
+        margin-top: -20px;
+    }
+
+    .hero-image-container {
+        width: 280px;
+        height: 360px;
+        margin: 20px 0;
+    }
+
+    .hero-intro {
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-left-deco {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
-    .scroll-hint {
-        bottom: 20px;
-        font-size: 0.75rem;
+    .home-container {
+        padding: 0 20px;
     }
 
-    .palette-section {
-        padding: 40px 16px;
-        min-height: 70vh;
+    .hero-text-hello,
+    .hero-text-im,
+    .hero-text-name {
+        font-size: 4rem;
+    }
+
+    .hero-image-container {
+        width: 240px;
+        height: 320px;
     }
 }

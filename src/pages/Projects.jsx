@@ -35,7 +35,7 @@ const littleBookImages = [
     '/assets/projects/little-book-peace/Hardcover Book Mockup Close Up Poster.png',
     '/assets/projects/little-book-peace/Open Hardcover Book Mockup.png',
     '/assets/projects/little-book-peace/Hardcover Books Mockup Front And Back View.png',
-    '/assets/projects/little-book-peace/Flower Page Border A3 Landscape Poster (1).png',
+    '/assets/projects/little-book-peace/Flower Page Border A3 Landscape Poster.png',
 ]
 
 // Animation variants
@@ -225,27 +225,11 @@ function Projects() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            {/* Stickers */}
-            <motion.div
-                className="sticker projects-sticker-1 float-1"
-                initial={{ x: -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-            >
-                <img src="/assets/cherry-removebg-preview.png" alt="Cherries" />
-            </motion.div>
-            <motion.div
-                className="sticker projects-sticker-2 float-2"
-                initial={{ x: 100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-            >
-                <img src="/assets/Icons_With_Transparent_Background-removebg-preview.png" alt="Butterfly" />
-            </motion.div>
+
 
             <div className="projects-container">
                 <motion.h1
-                    className="page-title cursive-title"
+                    className="page-title"
                     initial={{ opacity: 0, y: -30, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.6 }}
@@ -253,112 +237,7 @@ function Projects() {
                     Projects
                 </motion.h1>
 
-                {/* Project 1: The Gloss Edit */}
-                <motion.section
-                    className="project-showcase mt-xl"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
-                >
-                    <motion.div className="project-header" variants={fadeInUp}>
-                        <span className="project-category-tag">Publication Design</span>
-                        <h2 className="project-name">The Gloss Edit</h2>
-                        <p className="project-tagline">Digital Layouts • Editorial Design</p>
-                    </motion.div>
-
-                    <ImageCarousel images={glossEditImages} projectName="The Gloss Edit" />
-
-                    <motion.div
-                        className="project-description"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <p>
-                            <strong>The Gloss Edit</strong> is a conceptual high-fashion beauty magazine designed
-                            as a packaging and editorial exploration of minimalism, self-expression, and timeless elegance.
-                        </p>
-                        <p className="mt-md">
-                            Created in a stark black-and-white visual language, this project allowed me to experiment
-                            with luxury aesthetics, typography, and editorial layout.
-                        </p>
-                    </motion.div>
-                </motion.section>
-
-                {/* Project 2: Signage */}
-                <motion.section
-                    className="project-showcase mt-xl"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
-                >
-                    <motion.div className="project-header" variants={fadeInUp}>
-                        <span className="project-category-tag">Signage & Wayfinding</span>
-                        <h2 className="project-name">Imagicaa Wayfinding</h2>
-                        <p className="project-tagline">Theme Park Signage • Icon Design • User Experience</p>
-                    </motion.div>
-
-                    <ImageCarousel images={signageImages} projectName="Imagicaa Signage" />
-
-                    <motion.div
-                        className="project-description"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <p>
-                            This <strong>signage and wayfinding project</strong> was collaboratively designed as part of
-                            a college design studio, focusing on improving navigation in large-scale amusement parks.
-                        </p>
-                        <p className="mt-md">
-                            We reimagined Imagicaa's wayfinding system using a cohesive 2D icon-based signage
-                            language that balances functionality with brand storytelling.
-                        </p>
-                    </motion.div>
-                </motion.section>
-
-                {/* Project 3: My Closet App */}
-                <motion.section
-                    className="project-showcase mt-xl"
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
-                >
-                    <motion.div className="project-header" variants={fadeInUp}>
-                        <span className="project-category-tag">UI/UX Design</span>
-                        <h2 className="project-name">My Closet</h2>
-                        <p className="project-tagline">Fashion App • 3D Virtual Styling • Mobile UI</p>
-                    </motion.div>
-
-                    <ImageCarousel images={myClosetImages} projectName="My Closet" />
-
-                    <motion.div
-                        className="project-description"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInUp}
-                    >
-                        <p>
-                            <strong>My Closet</strong> is a conceptual fashion app designed to simplify everyday
-                            outfit selection through a personalized virtual styling experience. The app allows
-                            users to visualize clothes from their own wardrobe on a customizable 3D human model,
-                            tailored to individual attributes such as body shape, height, weight, and skin tone.
-                        </p>
-                        <p className="mt-md">
-                            This project was entirely designed by me—from brand identity and logo design to user
-                            flows, wireframes, UI screens, and interaction logic—focusing on intuitive navigation,
-                            inclusivity, and a clean, functional visual language.
-                        </p>
-                    </motion.div>
-                </motion.section>
-
-                {/* Project 4: The Little Book of Peace */}
+                {/* Project 1: The Little Book of Peace */}
                 <motion.section
                     className="project-showcase mt-xl"
                     initial="hidden"
@@ -395,11 +274,114 @@ function Projects() {
                         </p>
                     </motion.div>
                 </motion.section>
+
+                {/* Project 2: The Gloss Edit */}
+                <motion.section
+                    className="project-showcase mt-xl"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
+                >
+                    <motion.div className="project-header" variants={fadeInUp}>
+                        <span className="project-category-tag">Publication Design</span>
+                        <h2 className="project-name">The Gloss Edit</h2>
+                        <p className="project-tagline">Digital Layouts • Editorial Design</p>
+                    </motion.div>
+
+                    <ImageCarousel images={glossEditImages} projectName="The Gloss Edit" />
+
+                    <motion.div
+                        className="project-description"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <p>
+                            <strong>The Gloss Edit</strong> is a conceptual high-fashion beauty magazine designed
+                            as a packaging and editorial exploration of minimalism, self-expression, and timeless elegance.
+                        </p>
+                        <p className="mt-md">
+                            Created in a stark black-and-white visual language, this project allowed me to experiment
+                            with luxury aesthetics, typography, and editorial layout.
+                        </p>
+                    </motion.div>
+                </motion.section>
+
+                {/* Project 3: Signage */}
+                <motion.section
+                    className="project-showcase mt-xl"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
+                >
+                    <motion.div className="project-header" variants={fadeInUp}>
+                        <span className="project-category-tag">Signage & Wayfinding</span>
+                        <h2 className="project-name">Imagicaa Wayfinding</h2>
+                        <p className="project-tagline">Theme Park Signage • Icon Design • User Experience</p>
+                    </motion.div>
+
+                    <ImageCarousel images={signageImages} projectName="Imagicaa Signage" />
+
+                    <motion.div
+                        className="project-description"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <p>
+                            This <strong>signage and wayfinding project</strong> was collaboratively designed as part of
+                            a college design studio, focusing on improving navigation in large-scale amusement parks.
+                        </p>
+                        <p className="mt-md">
+                            We reimagined Imagicaa's wayfinding system using a cohesive 2D icon-based signage
+                            language that balances functionality with brand storytelling.
+                        </p>
+                    </motion.div>
+                </motion.section>
+
+                {/* Project 4: My Closet App */}
+                <motion.section
+                    className="project-showcase mt-xl"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={scaleIn}
+                >
+                    <motion.div className="project-header" variants={fadeInUp}>
+                        <span className="project-category-tag">UI/UX Design</span>
+                        <h2 className="project-name">My Closet</h2>
+                        <p className="project-tagline">Fashion App • 3D Virtual Styling • Mobile UI</p>
+                    </motion.div>
+
+                    <ImageCarousel images={myClosetImages} projectName="My Closet" />
+
+                    <motion.div
+                        className="project-description"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                    >
+                        <p>
+                            <strong>My Closet</strong> is a conceptual fashion app designed to simplify everyday
+                            outfit selection through a personalized virtual styling experience. The app allows
+                            users to visualize clothes from their own wardrobe on a customizable 3D human model,
+                            tailored to individual attributes such as body shape, height, weight, and skin tone.
+                        </p>
+                        <p className="mt-md">
+                            This project was entirely designed by me—from brand identity and logo design to user
+                            flows, wireframes, UI screens, and interaction logic—focusing on intuitive navigation,
+                            inclusivity, and a clean, functional visual language.
+                        </p>
+                    </motion.div>
+                </motion.section>
             </div>
 
-            <div className="flowers-fixed">
-                <img src="/assets/_-removebg-preview.png" alt="Flowers" />
-            </div>
+
         </motion.div>
     )
 }

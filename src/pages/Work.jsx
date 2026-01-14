@@ -70,19 +70,11 @@ function Work() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            {/* Sticker */}
-            <motion.div
-                className="sticker work-sticker-1 float-1"
-                initial={{ x: 100, opacity: 0, rotate: 30 }}
-                animate={{ x: 0, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-            >
-                <img src="/assets/Icons_With_Transparent_Background-removebg-preview.png" alt="Butterfly" />
-            </motion.div>
+
 
             <div className="work-container">
                 <motion.h1
-                    className="page-title cursive-title"
+                    className="page-title"
                     initial={{ opacity: 0, y: -30, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     transition={{ duration: 0.6 }}
@@ -157,9 +149,7 @@ function Work() {
                 </motion.div>
             </div>
 
-            <div className="flowers-fixed">
-                <img src="/assets/_-removebg-preview.png" alt="Flowers" />
-            </div>
+
         </motion.div>
     )
 }

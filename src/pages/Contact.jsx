@@ -108,7 +108,7 @@ function Contact() {
                     variants={fadeInRight}
                 >
                     <motion.h1
-                        className="contact-title cursive-title"
+                        className="contact-title"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}

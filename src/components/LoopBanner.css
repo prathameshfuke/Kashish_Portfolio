@@ -1,0 +1,30 @@
+.loop-banner {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 20;
+}
+
+.loop-track {
+    display: flex;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.loop-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .loop-item {
+        font-size: 0.8rem;
+    }
+}

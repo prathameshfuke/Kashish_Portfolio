@@ -4,18 +4,50 @@
 
 /* Custom Fonts */
 @font-face {
-  font-family: 'America Calligraphy';
-  src: url('/fonts/america-calligraphy-font/AmericaCalligraphy-8MW3B.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-Regular-BF644b214ff145f.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Melanin';
-  src: url('/fonts/melanin-font/Melanin-R9xZA.otf') format('opentype');
-  font-weight: normal;
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-Italic-BF644b214fb0c0a.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-Ultrabold-BF644b21500840c.otf') format('opentype');
+  font-weight: 800;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-UltraboldItalic-BF644b214faef01.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-Ultralight-BF644b21500d0c0.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Editorial New';
+  src: url('/fonts/editorial-new-font-family-1768203907-0/PPEditorialNew-UltralightItalic-BF644b214ff1e9b.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -37,7 +69,7 @@
   --yellow: #ffd700;
 
   /* Typography */
-  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-serif: 'PP Editorial New', 'Georgia', serif;
   --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
   --font-script: 'America Calligraphy', cursive;
 
@@ -323,7 +355,7 @@ a {
   font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 400;
   text-align: center;
-  color: var(--text-cream);
+  color: #FFB6D9;
   line-height: 1;
   position: relative;
   z-index: 5;
