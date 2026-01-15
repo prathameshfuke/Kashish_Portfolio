@@ -16,6 +16,11 @@ function Home() {
                 className="hero-badge"
                 initial={{ scale: 0, rotate: -20 }}
                 animate={{ scale: 1, rotate: -5 }}
+                whileHover={{
+                    scale: 1.1,
+                    rotate: 0,
+                    boxShadow: "0 0 30px rgba(255, 182, 217, 0.6)"
+                }}
                 transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
             >
                 <span className="badge-text">design<br />portfolio</span>
@@ -37,6 +42,10 @@ function Home() {
                             className="hero-text-im"
                             initial={{ x: -100, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
+                            whileHover={{
+                                scale: 1.05,
+                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
+                            }}
                             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         >
                             I'M
@@ -52,6 +61,10 @@ function Home() {
                             className="hero-image-container"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
+                            whileHover={{
+                                scale: 1.03,
+                                boxShadow: "0 30px 70px rgba(255, 182, 217, 0.4), 0 0 40px rgba(255, 182, 217, 0.2)"
+                            }}
                             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                         >
                             <img src="/assets/photo/homepage.JPG" alt="Kashish Oswal" className="hero-image" />
@@ -68,6 +81,10 @@ function Home() {
                             className="hero-text-name"
                             initial={{ x: 100, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
+                            whileHover={{
+                                scale: 1.05,
+                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
+                            }}
                             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                         >
                             KASHISH
@@ -97,6 +114,10 @@ function Home() {
                             className="hero-text-hello"
                             initial={{ y: 100, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
+                            whileHover={{
+                                scale: 1.05,
+                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
+                            }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
                             HELLO

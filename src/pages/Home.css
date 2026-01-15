@@ -12,6 +12,8 @@
     color: #FFB6D9;
     margin: 0;
     padding: 0;
+    cursor: pointer;
+    transition: text-shadow 0.3s ease;
 }
 
 .home-page {
@@ -53,7 +55,7 @@
    ============================================ */
 .hero-text-hello {
     position: absolute;
-    left: 217px;
+    left: 210px;
     top: 62px;
     font-size: 8rem;
     font-weight: 400;
@@ -68,7 +70,7 @@
    ============================================ */
 .hero-text-im {
     position: absolute;
-    left: 213px;
+    left: 210px;
     top: 199px;
     font-size: 8rem;
     font-weight: 400;
@@ -127,6 +129,8 @@
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .hero-image {
@@ -171,7 +175,7 @@
    ============================================ */
 .hero-text-name {
     position: absolute;
-    left: 208px;
+    left: 210px;
     top: 336px;
     font-size: 6.5rem;
     font-weight: 400;
