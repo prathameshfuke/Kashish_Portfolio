@@ -151,10 +151,6 @@ function Contact() {
                     </motion.div>
                 </motion.div>
             </motion.div>
-
-            <div className="flowers-fixed">
-                <img src="/assets/_-removebg-preview.png" alt="Flowers" />
-            </div>
         </motion.div>
     )
 }
