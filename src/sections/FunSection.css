@@ -1,5 +1,5 @@
 .fun-section {
-    background: linear-gradient(180deg, var(--cream) 0%, var(--pink-soft) 50%, var(--cream) 100%);
+    background: var(--bg);
     position: relative;
     overflow: hidden;
 }
@@ -40,7 +40,7 @@
 .sticker-item:hover,
 .sticker-item.active {
     transform: scale(1.1) rotate(3deg);
-    box-shadow: var(--shadow-pink);
+    box-shadow: 0 8px 24px rgba(109, 124, 247, 0.2);
 }
 
 .sticker-item img {
@@ -105,7 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-pink);
+    background: var(--accent-blue);
 }
 
 .quote-content {

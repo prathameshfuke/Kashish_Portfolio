@@ -1,7 +1,7 @@
 .loader {
     position: fixed;
     inset: 0;
-    background: var(--cream);
+    background: var(--bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,17 +31,17 @@
 
 .loader-name {
     display: block;
-    font-family: var(--font-script);
+    font-family: var(--font-heading);
     font-size: 2.5rem;
-    color: var(--black);
+    color: var(--text);
     margin-bottom: var(--space-xs);
 }
 
 .loader-subtitle {
     display: block;
-    font-family: var(--font-accent);
+    font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--gray-dark);
+    color: var(--text);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -76,8 +76,8 @@
 
 .loader-sparkle {
     position: absolute;
-    color: var(--pink-light);
+    color: var(--accent-red);
     font-size: 1rem;
     animation: sparkle 1.5s ease-in-out infinite;
-    text-shadow: 0 0 10px var(--pink-light);
+    text-shadow: 0 0 10px rgba(230, 57, 70, 0.4);
 }

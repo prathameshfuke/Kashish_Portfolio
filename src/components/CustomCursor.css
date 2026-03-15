@@ -16,7 +16,7 @@
 
 .custom-cursor.hovering .cursor-dot {
     transform: scale(0.5);
-    background: var(--pink-light);
+    background: var(--accent-blue);
 }
 
 .custom-cursor.clicking .cursor-dot {
@@ -27,7 +27,7 @@
     position: fixed;
     width: 40px;
     height: 40px;
-    border: 2px solid var(--pink-light);
+    border: 2px solid var(--accent-blue);
     border-radius: 50%;
     pointer-events: none;
     z-index: calc(var(--z-cursor) - 1);
@@ -53,7 +53,7 @@
     position: fixed;
     width: 12px;
     height: 12px;
-    background: var(--pink-soft);
+    background: var(--bg);
     border-radius: 50%;
     pointer-events: none;
     z-index: calc(var(--z-cursor) - 2);

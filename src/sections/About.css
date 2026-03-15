@@ -49,7 +49,7 @@
     display: flex;
     gap: var(--space-2xl);
     padding: var(--space-xl);
-    background: white;
+    background: var(--bg);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     margin-top: var(--space-xl);
@@ -86,7 +86,7 @@
 
 /* Tools Section */
 .tools-section {
-    background: white;
+    background: var(--bg);
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
     box-shadow: var(--shadow-md);
@@ -203,13 +203,13 @@
 }
 
 .flip-card-front {
-    background: white;
+    background: var(--bg);
     border: 2px solid var(--gray-light);
     box-shadow: var(--shadow-sm);
 }
 
 .flip-card-back {
-    background: var(--gradient-pink);
+    background: var(--accent-blue);
     transform: rotateY(180deg);
 }
 

@@ -1,297 +1,275 @@
 /* ============================================
-   TEMPLATE MATCH - ABSOLUTE POSITIONING
-   Each element is freely movable with position absolute
+   HOMEPAGE
    ============================================ */
-
-/* Reset and Base */
-.hero-text-hello,
-.hero-text-im,
-.hero-text-name {
-    font-family: 'PP Editorial New', serif;
-    text-transform: uppercase;
-    color: #FFB6D9;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    transition: text-shadow 0.3s ease;
-}
 
 .home-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #000;
-    background-image: radial-gradient(#222 1px, transparent 1px);
-    background-size: 25px 25px;
-    overflow-x: hidden;
-}
-
-.home-container {
-    width: 100%;
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 60px;
-}
-
-.hero-section {
-    padding-top: 60px;
-    position: relative;
+    background: var(--bg);
 }
 
 /* ============================================
-   HERO GRID - Container with relative positioning
-   All children use absolute positioning for free movement
+   SECTION 1: HERO
    ============================================ */
-.hero-grid {
+.hero {
     position: relative;
     width: 100%;
-    max-width: 1400px;
-    min-height: 600px;
-    margin: 0 auto;
-}
-
-/* ============================================
-   HELLO - Freely positioned
-   ============================================ */
-.hero-text-hello {
-    position: absolute;
-    left: 210px;
-    top: 62px;
-    font-size: 8rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 0.85;
-    letter-spacing: -0.02em;
-    z-index: 2;
-}
-
-/* ============================================
-   I'M - Freely positioned
-   ============================================ */
-.hero-text-im {
-    position: absolute;
-    left: 210px;
-    top: 199px;
-    font-size: 8rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 0.85;
-    z-index: 2;
-}
-
-/* ============================================
-   LEFT DECORATIONS - Freely positioned
-   ============================================ */
-.hero-left-deco {
-    position: absolute;
-    left: 230px;
-    top: 320px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    z-index: 2;
-}
-
-.deco-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-}
-
-.deco-text {
-    font-family: 'PP Editorial New', serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    letter-spacing: 0.08em;
-    color: #FFB6D9;
-    line-height: 1.3;
-}
-
-.deco-arrow {
-    font-size: 1.2rem;
-    color: #FFB6D9;
-}
-
-/* ============================================
-   IMAGE - Freely positioned (centered)
-   ============================================ */
-.hero-image-container {
-    position: absolute;
-    left: 726px;
-    top: 61px;
-    width: 350px;
-    height: 480px;
-    z-index: 3;
+    height: 100vh;
     overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: #F6F3EE;
 }
 
-.hero-image {
-    width: 100%;
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
+    z-index: 1;
+    mask-image: linear-gradient(to left, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
+}
+
+.hero-text {
+    position: absolute;
+    bottom: 8%;
+    left: 80px;
+    z-index: 10;
+}
+
+.hero-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E63946;
+    margin-bottom: 16px;
+}
+
+.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: #E63946;
+    margin-bottom: 24px;
+}
+
+.hero-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(15px, 1.5vw, 20px);
+    color: rgba(17, 17, 17, 0.5);
+    max-width: 400px;
 }
 
 /* ============================================
-   BADGE - Freely positioned
+   MARQUEE SCROLLING STRIP
    ============================================ */
-.hero-badge {
-    position: absolute;
-    left: 1188px;
-    top: 216px;
-    display: grid;
-    justify-content: center;
-    align-items: flex-start;
-    box-sizing: content-box;
-    background: #000;
-    border: 2px solid #fff;
-    padding: 12px 24px;
-    border-radius: 50px;
-    z-index: 4;
-    transform: rotate(-5deg);
+.marquee-strip {
+    width: 100%;
+    background: var(--accent-red);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 0;
+    overflow: hidden;
     white-space: nowrap;
 }
 
-.badge-text {
-    font-family: 'PP Editorial New', serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1rem;
+.marquee-content {
+    display: flex;
+    gap: 0;
+    animation: marquee 18s linear infinite;
+    will-change: transform;
+}
+
+.marquee-content span {
+    flex-shrink: 0;
+    padding-right: 0;
+    color: #FFFFFF;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ============================================
+   SECTION 2: DESIGN PHILOSOPHY / ABOUT PREVIEW
+   ============================================ */
+.philosophy-section {
+    background: #6D7CF7;
+    width: 100%;
+    padding: 100px 80px;
+}
+
+.philosophy-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+/* Left Column - Badge + Polaroid / Image */
+.philosophy-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+/* Portfolio Badge above polaroid */
+.portfolio-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #FFFFFF;
+    border-radius: 999px;
+    padding: 10px 24px;
+    cursor: default;
+    background: transparent;
+    transition: background 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.portfolio-badge:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.portfolio-badge span {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
     line-height: 1.3;
-    color: #fff;
     text-align: center;
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+}
+
+.philosophy-img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 2px;
     display: block;
 }
 
-/* ============================================
-   KASHISH - Freely positioned
-   ============================================ */
-.hero-text-name {
-    position: absolute;
-    left: 210px;
-    top: 336px;
-    font-size: 6.5rem;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 0.85;
-    z-index: 2;
-}
-
-/* ============================================
-   INTRO - Freely positioned
-   ============================================ */
-.hero-intro {
-    position: absolute;
-    left: 210px;
-    top: 454px;
-    width: 380px;
-    text-align: left;
-    z-index: 2;
-}
-
-.hero-intro p {
-    color: #bbb;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.hero-decoration {
-    margin-top: 20px;
-}
-
-.hero-decoration svg path {
-    fill: #FFB6D9;
-}
-
-/* ============================================
-   3D Palette Section
-   ============================================ */
-.palette-section {
-    min-height: 450px;
+/* Right Column - Text */
+.philosophy-text {
     display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.philosophy-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.philosophy-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+.philosophy-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.75;
+    margin: 0;
+    padding: 0;
+}
+
+.read-more-link {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 80px;
+    gap: 4px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-decoration-color: #FFFFFF;
+    margin-top: var(--space-lg);
+    width: fit-content;
+    transition: opacity 0.2s ease;
+}
+
+.read-more-link:hover {
+    opacity: 0.7;
+    color: #FFFFFF;
+}
+
+.read-more-link .arrow {
+    display: inline-block;
 }
 
 /* ============================================
-   RESPONSIVE - Switch to flex column on smaller screens
+   RESPONSIVE DESIGN
    ============================================ */
-@media (max-width: 1100px) {
-    .home-container {
-        padding: 0 30px;
-    }
-
-    .hero-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        min-height: auto;
-    }
-
-    .hero-text-hello,
-    .hero-text-im,
-    .hero-text-name,
-    .hero-image-container,
-    .hero-badge,
-    .hero-intro,
-    .hero-left-deco {
-        position: static;
-        transform: none;
-    }
-
-    .hero-text-hello,
-    .hero-text-im,
-    .hero-text-name {
-        font-size: 5rem;
-        text-align: center;
-    }
-
-    .hero-text-im {
-        margin-top: -20px;
-    }
-
-    .hero-image-container {
-        width: 280px;
-        height: 360px;
-        margin: 20px 0;
-    }
-
-    .hero-intro {
+@media (max-width: 768px) {
+    .hero-bg-image {
         width: 100%;
-        max-width: 500px;
-        text-align: center;
-        padding: 0 20px;
+        height: 55%;
+        top: 0;
+        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     }
 
-    .hero-left-deco {
-        display: none;
+    .hero-text {
+        bottom: 6%;
+        left: 24px;
+    }
+
+    .hero-name {
+        font-size: clamp(48px, 13vw, 72px);
+    }
+
+    .philosophy-section {
+        padding: 60px 24px;
+    }
+
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .philosophy-img {
+        aspect-ratio: 1 / 1;
     }
 }
 
-@media (max-width: 768px) {
-    .home-container {
-        padding: 0 20px;
-    }
-
-    .hero-text-hello,
-    .hero-text-im,
-    .hero-text-name {
-        font-size: 4rem;
-    }
-
-    .hero-image-container {
-        width: 240px;
-        height: 320px;
+@media (max-width: 480px) {
+    .philosophy-heading {
+        font-size: clamp(20px, 5vw, 32px);
     }
 }

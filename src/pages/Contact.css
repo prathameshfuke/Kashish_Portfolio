@@ -5,6 +5,7 @@
     min-height: 100vh;
     padding-top: 100px;
     position: relative;
+    background: var(--bg);
 }
 
 /* Two-column layout */
@@ -27,21 +28,26 @@
 }
 
 .polaroid-frame {
-    background: #fff;
-    padding: 15px 15px 50px 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    transform: rotate(-5deg);
-    transition: transform 0.4s ease;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+    border-radius: 0;
+    overflow: visible;
+    display: inline-block;
 }
 
 .polaroid-frame:hover {
-    transform: rotate(0deg) scale(1.02);
+    transform: none;
+    box-shadow: none;
 }
 
 .polaroid-frame img {
-    width: 280px;
+    width: 360px;
     height: auto;
     display: block;
+    background: transparent;
 }
 
 /* Right - Contact Info */
@@ -54,6 +60,8 @@
 .contact-title {
     font-size: clamp(3rem, 8vw, 5rem);
     line-height: 1;
+    color: var(--accent-red);
+    font-family: var(--font-heading);
 }
 
 .contact-details {
@@ -65,49 +73,37 @@
 .contact-detail-item {
     display: block;
     padding: var(--space-sm) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.2);
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .contact-detail-item:hover {
     padding-left: var(--space-sm);
-    border-color: var(--pink-light);
+    border-color: var(--accent-red);
 }
 
 .contact-detail-label {
     display: block;
     font-size: 0.8rem;
-    color: var(--pink-light);
+    color: var(--accent-red);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 4px;
+    font-family: var(--font-body);
 }
 
 .contact-detail-value {
     display: block;
     font-size: 1.1rem;
-    color: var(--text-cream);
-    font-family: var(--font-serif);
+    color: var(--text);
+    font-family: var(--font-heading);
 }
 
 .contact-location {
     margin-top: var(--space-md);
-    color: var(--text-muted);
+    color: #11111180;
     font-size: 0.9rem;
-}
-
-/* Collage stickers */
-.contact-sticker-1 {
-    top: 15%;
-    right: 10%;
-    width: 80px;
-}
-
-.contact-sticker-2 {
-    bottom: 20%;
-    left: 5%;
-    width: 90px;
 }
 
 /* Responsive */
@@ -132,11 +128,6 @@
     }
 
     .polaroid-frame img {
-        width: 220px;
-    }
-
-    .contact-sticker-1,
-    .contact-sticker-2 {
-        display: none;
+        width: 280px;
     }
 }

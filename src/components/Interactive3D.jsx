@@ -57,7 +57,7 @@ export function MouseSparkles() {
         if (!container) return
 
         const sparkles = []
-        const colors = ['#FFB6D9', '#FFD700', '#FF69B4', '#FFF']
+        const colors = ['#E63946', '#FFC857', '#6D7CF7', '#111111']
 
         const createSparkle = (x, y) => {
             const sparkle = document.createElement('div')

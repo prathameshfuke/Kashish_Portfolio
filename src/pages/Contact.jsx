@@ -64,24 +64,6 @@ function Contact() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-            {/* Stickers */}
-            <motion.div
-                className="sticker contact-sticker-1 float-1"
-                initial={{ y: -100, opacity: 0, rotate: -30 }}
-                animate={{ y: 0, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-            >
-                <img src="/assets/cherry-removebg-preview.png" alt="Cherries" />
-            </motion.div>
-            <motion.div
-                className="sticker contact-sticker-2 float-2"
-                initial={{ y: 100, opacity: 0, rotate: 30 }}
-                animate={{ y: 0, opacity: 1, rotate: 0 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-            >
-                <img src="/assets/62bf5469ac4fb03d5a5073e93cb521a6.png" alt="Pink bow" />
-            </motion.div>
-
             <motion.div
                 className="contact-layout"
                 initial="hidden"

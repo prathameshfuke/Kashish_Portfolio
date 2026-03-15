@@ -39,22 +39,48 @@ const littleBookImages = [
 ]
 
 // Animation variants
-const fadeInUp = {
+const scrollSectionVariant = {
     hidden: { opacity: 0, y: 60 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] }
     }
 }
 
-const scaleIn = {
-    hidden: { opacity: 0, scale: 0.8 },
+const scrollTitleVariant = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5, delay: 0.2, ease: "easeOut" }
+    }
+}
+
+const scrollDescVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { duration: 0.5, delay: 0.35, ease: "easeOut" }
+    }
+}
+
+const imageRevealVariant = {
+    hidden: { opacity: 0, scale: 1.08 },
     visible: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.6, ease: "easeOut" }
+        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] }
     }
+}
+
+const scrollImageVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom) => ({
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut", delay: custom * 0.12 }
+    })
 }
 
 // 3D Tilt Image Component - applies only to image area
@@ -108,8 +134,10 @@ function TiltImage({ children }) {
 function ImageCarousel({ images, projectName }) {
     const [currentImage, setCurrentImage] = useState(0)
     const [direction, setDirection] = useState(0)
+    const [hasInitialized, setHasInitialized] = useState(false)
 
     useEffect(() => {
+        setHasInitialized(true)
         const timer = setInterval(() => {
             setDirection(1)
             setCurrentImage((prev) => (prev + 1) % images.length)
@@ -154,7 +182,13 @@ function ImageCarousel({ images, projectName }) {
 
     return (
         <>
-            <div className="carousel-container">
+            <motion.div
+                className="carousel-container"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={imageRevealVariant}
+            >
                 <motion.button
                     className="carousel-btn prev"
                     onClick={prevImage}
@@ -175,7 +209,7 @@ function ImageCarousel({ images, projectName }) {
                                 className="carousel-image"
                                 custom={direction}
                                 variants={slideVariants}
-                                initial="enter"
+                                initial={hasInitialized ? "enter" : false}
                                 animate="center"
                                 exit="exit"
                                 transition={{
@@ -196,9 +230,15 @@ function ImageCarousel({ images, projectName }) {
                 >
                     ›
                 </motion.button>
-            </div>
+            </motion.div>
 
-            <div className="carousel-dots">
+            <motion.div
+                className="carousel-dots"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+            >
                 {images.map((_, index) => (
                     <motion.button
                         key={index}
@@ -208,11 +248,11 @@ function ImageCarousel({ images, projectName }) {
                         whileTap={{ scale: 0.8 }}
                         animate={{
                             scale: currentImage === index ? 1.2 : 1,
-                            backgroundColor: currentImage === index ? '#FFB6D9' : 'rgba(255,255,255,0.2)'
+                            backgroundColor: currentImage === index ? '#E63946' : 'rgba(17,17,17,0.08)'
                         }}
                     />
                 ))}
-            </div>
+            </motion.div>
         </>
     )
 }
@@ -242,10 +282,10 @@ function Projects() {
                     className="project-showcase mt-xl"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
+                    viewport={{ once: true, amount: 0.15 }}
+                    variants={scrollSectionVariant}
                 >
-                    <motion.div className="project-header" variants={fadeInUp}>
+                    <motion.div className="project-header" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollTitleVariant}>
                         <span className="project-category-tag">Publication Design</span>
                         <h2 className="project-name">The Little Book of Peace</h2>
                         <p className="project-tagline">Children's Book • Interactive Design • Jain Values</p>
@@ -258,7 +298,7 @@ function Projects() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        variants={fadeInUp}
+                        variants={scrollDescVariant}
                     >
                         <p>
                             <strong>The Little Book of Peace</strong> is an interactive children's book designed
@@ -280,10 +320,10 @@ function Projects() {
                     className="project-showcase mt-xl"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
+                    viewport={{ once: true, amount: 0.15 }}
+                    variants={scrollSectionVariant}
                 >
-                    <motion.div className="project-header" variants={fadeInUp}>
+                    <motion.div className="project-header" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollTitleVariant}>
                         <span className="project-category-tag">Publication Design</span>
                         <h2 className="project-name">The Gloss Edit</h2>
                         <p className="project-tagline">Digital Layouts • Editorial Design</p>
@@ -296,7 +336,7 @@ function Projects() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        variants={fadeInUp}
+                        variants={scrollDescVariant}
                     >
                         <p>
                             <strong>The Gloss Edit</strong> is a conceptual high-fashion beauty magazine designed
@@ -314,10 +354,10 @@ function Projects() {
                     className="project-showcase mt-xl"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
+                    viewport={{ once: true, amount: 0.15 }}
+                    variants={scrollSectionVariant}
                 >
-                    <motion.div className="project-header" variants={fadeInUp}>
+                    <motion.div className="project-header" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollTitleVariant}>
                         <span className="project-category-tag">Signage & Wayfinding</span>
                         <h2 className="project-name">Imagicaa Wayfinding</h2>
                         <p className="project-tagline">Theme Park Signage • Icon Design • User Experience</p>
@@ -330,7 +370,7 @@ function Projects() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        variants={fadeInUp}
+                        variants={scrollDescVariant}
                     >
                         <p>
                             This <strong>signage and wayfinding project</strong> was collaboratively designed as part of
@@ -348,10 +388,10 @@ function Projects() {
                     className="project-showcase mt-xl"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={scaleIn}
+                    viewport={{ once: true, amount: 0.15 }}
+                    variants={scrollSectionVariant}
                 >
-                    <motion.div className="project-header" variants={fadeInUp}>
+                    <motion.div className="project-header" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollTitleVariant}>
                         <span className="project-category-tag">UI/UX Design</span>
                         <h2 className="project-name">My Closet</h2>
                         <p className="project-tagline">Fashion App • 3D Virtual Styling • Mobile UI</p>
@@ -364,7 +404,7 @@ function Projects() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        variants={fadeInUp}
+                        variants={scrollDescVariant}
                     >
                         <p>
                             <strong>My Closet</strong> is a conceptual fashion app designed to simplify everyday

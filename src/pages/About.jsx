@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import './About.css'
 
 const skillsWithIcons = [
@@ -16,65 +16,66 @@ const otherSkills = ['Social Media Marketing', 'Content Strategy', 'Communicatio
 
 const experiences = [
     {
-        role: 'UI/UX & Graphic Design Intern',
-        company: 'NoBrokerage.com',
-        period: 'May 2025 – July 2025',
-        description: 'Worked on website UI elements and social media creatives while maintaining consistency with the brand\'s design system.',
+        year: "May 2025 – July 2025",
+        role: "UI/UX & Graphic Design Intern",
+        company: "NoBrokerage.com",
+        description: "Designed user interfaces and graphic assets to enhance the platform's visual communication and overall user experience."
     },
     {
-        role: 'Freelance Visual Designer',
-        company: 'D Birds Girls Hostel',
-        period: 'Jan 2024 – Mar 2025',
-        description: 'Managed end-to-end visual design for social media, brochures, and promotional materials.',
+        year: "July 2025 – Sept 2025",
+        role: "Social Media Manager & Graphic Intern",
+        company: "Avotech Systems Pvt. Ltd.",
+        description: "Managed social media presence and created branded graphic content to strengthen the company's digital identity."
     },
     {
-        role: 'Freelance Visual Designer',
-        company: 'Shubham Fashion',
-        period: 'Jan 2025 – June 2025',
-        description: 'Designed store signage, invitations, and promotional creatives aligned with the brand\'s aesthetic.',
+        year: "Dec 2025 – Jan 2026",
+        role: "Freelance Visual Designer",
+        company: "Ingrain Corporation",
+        description: "Delivered freelance visual design solutions including brand materials and digital assets tailored to client requirements."
     },
     {
-        role: 'Design Intern',
-        company: 'IRIS Media Solutions',
-        period: 'May 2022 – Nov 2022',
-        description: 'Created digital assets and marketing creatives for multiple clients using Adobe Creative Suite.',
+        year: "Jan 2025 – June 2025",
+        role: "Freelance Visual Designer",
+        company: "Shubham Fashion",
+        description: "Created visual identity and marketing collateral for a fashion brand to elevate its aesthetic and market presence."
     },
     {
-        role: 'Ideation & Graphic Design Intern',
-        company: 'SANGAM India',
-        period: 'Nov 2022 – Jan 2023',
-        description: 'Contributed to campaign ideation and visual execution for social media and marketing initiatives.',
+        year: "Jan 2024 – Mar 2025",
+        role: "Freelance Visual Designer",
+        company: "D Birds Girls Hostel",
+        description: "Developed branding and promotional design materials to build a welcoming visual identity for the hostel."
     },
     {
-        role: 'Social Media Manager & Graphic Intern',
-        company: 'Avotech Systems Pvt. Ltd.',
-        period: 'July 2025 – Sept 2025',
-        description: 'Planned, designed, and executed social media content including posts and reels.',
+        year: "Nov 2022 – Jan 2023",
+        role: "Ideation & Graphic Design Intern",
+        company: "SANGAM India",
+        description: "Contributed to ideation sessions and produced graphic design outputs to support the organisation's communication goals."
     },
     {
-        role: 'Freelance Visual Designer',
-        company: 'Ingrain Corporation',
-        period: 'Dec 2025 – Jan 2026',
-        description: 'Created a company catalogue book and corporate profile design with structured, brand-aligned layouts.',
+        year: "May 2022 – Nov 2022",
+        role: "Design Intern",
+        company: "IRIS Media Solutions",
+        description: "Assisted in creating visual content and design materials across print and digital media for various client campaigns."
     },
 ]
 
 // Animation variants
-const fadeInUp = {
-    hidden: { opacity: 0, y: 60 },
+const scrollSectionVariant = {
+    hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+        transition: { duration: 0.5, ease: "easeOut" }
     }
 }
 
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
+const timelineEntryVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (custom) => ({
         opacity: 1,
-        transition: { staggerChildren: 0.1 }
-    }
+        y: 0,
+        transition: { duration: 0.45, ease: "easeOut", delay: custom * 0.15 }
+    })
 }
 
 const toolItemVariant = {
@@ -96,11 +97,19 @@ const badgeVariant = {
     }
 }
 
-function About() {
-    const [expandedIndex, setExpandedIndex] = useState(null)
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+    }
+}
 
-    const toggleExpand = (index) => {
-        setExpandedIndex(expandedIndex === index ? null : index)
+function About() {
+    const [openIndex, setOpenIndex] = useState(null)
+
+    const handleClick = (index) => {
+        setOpenIndex(openIndex === index ? null : index)
     }
 
     return (
@@ -110,7 +119,6 @@ function About() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
         >
-
 
             <div className="about-container">
                 <motion.h1
@@ -127,8 +135,8 @@ function About() {
                         className="about-bio"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={fadeInUp}
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={scrollSectionVariant}
                     >
                         <p>
                             Visual Communication Design student with hands-on experience in branding,
@@ -145,8 +153,8 @@ function About() {
                         className="about-section mt-xl"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={fadeInUp}
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={scrollSectionVariant}
                     >
                         <h2 className="section-title">Education</h2>
                         <motion.div
@@ -171,17 +179,18 @@ function About() {
                         className="about-section mt-xl"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={scrollSectionVariant}
                     >
-                        <motion.h2 className="section-title" variants={fadeInUp}>Design Tools</motion.h2>
-                        <motion.div className="tools-grid" variants={staggerContainer}>
+                        <motion.h2 className="section-title" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollSectionVariant}>Design Tools</motion.h2>
+                        <motion.div className="tools-grid" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={staggerContainer}>
                             {skillsWithIcons.map((skill, index) => (
                                 <motion.div
                                     key={skill.name}
                                     className="tool-item"
                                     variants={toolItemVariant}
                                     whileHover={{ scale: 1.1, y: -10 }}
+                                    custom={index}
                                 >
                                     <img src={skill.icon} alt={skill.name} className="tool-icon" />
                                     <span className="tool-name">{skill.name}</span>
@@ -194,11 +203,11 @@ function About() {
                         className="about-section mt-xl"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
+                        viewport={{ once: true, amount: 0.15 }}
+                        variants={scrollSectionVariant}
                     >
-                        <motion.h2 className="section-title" variants={fadeInUp}>Skills</motion.h2>
-                        <motion.div className="skills-row" variants={staggerContainer}>
+                        <motion.h2 className="section-title" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollSectionVariant}>Skills</motion.h2>
+                        <motion.div className="skills-row" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={staggerContainer}>
                             {designSkills.map(skill => (
                                 <motion.span
                                     key={skill}
@@ -210,7 +219,7 @@ function About() {
                                 </motion.span>
                             ))}
                         </motion.div>
-                        <motion.div className="skills-row mt-md" variants={staggerContainer}>
+                        <motion.div className="skills-row mt-md" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={staggerContainer}>
                             {otherSkills.map(skill => (
                                 <motion.span
                                     key={skill}
@@ -228,49 +237,52 @@ function About() {
                         className="about-section mt-xl"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={scrollSectionVariant}
                     >
-                        <motion.h2 className="section-title" variants={fadeInUp}>Work Experience</motion.h2>
-                        <div className="experiences-list">
+                        <motion.h2 className="section-title" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={scrollSectionVariant}>Work Experience</motion.h2>
+                        <div className="timeline-wrapper">
+                            <div className="timeline-line"></div>
                             {experiences.map((exp, index) => (
                                 <motion.div
                                     key={index}
-                                    className={`experience-card ${expandedIndex === index ? 'expanded' : ''}`}
-                                    onClick={() => toggleExpand(index)}
-                                    variants={fadeInUp}
-                                    whileHover={{ scale: 1.02, x: 10 }}
-                                    transition={{ duration: 0.2 }}
+                                    className={`timeline-entry ${index % 2 === 0 ? 'left' : 'right'}`}
+                                    custom={index}
+                                    variants={timelineEntryVariant}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    onClick={() => handleClick(index)}
+                                    style={{ cursor: 'pointer' }}
                                 >
-                                    <div className="experience-header">
-                                        <div className="experience-info">
-                                            <span className="experience-role">{exp.role}</span>
-                                            <span className="experience-company">{exp.company} | {exp.period}</span>
-                                        </div>
-                                        <motion.span
-                                            className="experience-toggle"
-                                            animate={{ rotate: expandedIndex === index ? 45 : 0 }}
-                                        >
-                                            +
-                                        </motion.span>
+                                    <div className="timeline-content">
+                                        <span className="timeline-year">{exp.year}</span>
+                                        <h3 className="timeline-role">
+                                            {exp.role}
+                                            <span className={`timeline-toggle ${openIndex === index ? 'open' : ''}`}>+</span>
+                                        </h3>
+                                        <p className="timeline-company">{exp.company}</p>
+                                        <AnimatePresence>
+                                            {openIndex === index && (
+                                                <motion.p
+                                                    className="timeline-description"
+                                                    initial={{ opacity: 0, height: 0 }}
+                                                    animate={{ opacity: 1, height: 'auto' }}
+                                                    exit={{ opacity: 0, height: 0 }}
+                                                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                                                >
+                                                    {exp.description}
+                                                </motion.p>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
-                                    {expandedIndex === index && (
-                                        <motion.div
-                                            className="experience-description"
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: 'auto' }}
-                                            exit={{ opacity: 0, height: 0 }}
-                                        >
-                                            <p>{exp.description}</p>
-                                        </motion.div>
-                                    )}
+                                    <div className="timeline-dot"></div>
                                 </motion.div>
                             ))}
                         </div>
                     </motion.div>
                 </div>
             </div>
-
 
         </motion.div>
     )

@@ -47,10 +47,10 @@
 
 .floating-sparkle {
     position: absolute;
-    color: var(--pink-light);
+    color: var(--accent-blue);
     animation: sparkle 2s ease-in-out infinite, float 4s ease-in-out infinite;
     opacity: 0.4;
-    text-shadow: 0 0 10px var(--pink-light);
+    text-shadow: 0 0 10px var(--accent-blue);
 }
 
 /* Hide some stickers on mobile for performance */

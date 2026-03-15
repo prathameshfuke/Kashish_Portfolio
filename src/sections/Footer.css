@@ -1,6 +1,6 @@
 .footer {
-    background: var(--black);
-    color: white;
+    background: var(--text);
+    color: var(--bg);
     padding: var(--space-4xl) 0 var(--space-2xl);
     position: relative;
 }
@@ -46,7 +46,7 @@
 }
 
 .footer-link:hover {
-    color: var(--pink-light);
+    color: var(--accent-red);
 }
 
 /* Social */
@@ -70,7 +70,7 @@
 }
 
 .social-link:hover {
-    background: var(--pink-light);
+    background: var(--accent-red);
     transform: translateY(-3px);
 }
 
@@ -120,7 +120,7 @@
     transform: translateY(20px);
     transition: all var(--transition-base);
     z-index: var(--z-sticky);
-    box-shadow: var(--shadow-pink);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
 }
 
 .footer .back-to-top.visible {

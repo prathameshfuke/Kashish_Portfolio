@@ -1,149 +1,108 @@
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import Palette3DScene from '../components/Palette3DScene'
-import LoopBanner from '../components/LoopBanner'
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 function Home() {
-    const navigate = useNavigate()
+    // Animation variants for Section 2
+    const section2ImageVariant = {
+        hidden: { opacity: 0, x: -20 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.55, ease: "easeOut" }
+        }
+    }
+
+    const section2TextVariant = {
+        hidden: { opacity: 0, x: 20 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 0.55, delay: 0.15, ease: "easeOut" }
+        }
+    }
 
     return (
-        <div className="page home-page">
-            <LoopBanner />
+        <div className="home-page">
+            {/* ==================== SECTION 1: HERO ==================== */}
+            <section className="hero">
+                <img
+                    src="/assets/photo/herosection.png"
+                    alt="Kashish Oswal"
+                    className="hero-bg-image"
+                />
+                <div className="hero-text">
+                    <span className="hero-label">Visual Communication Designer</span>
+                    <h1 className="hero-name">KASHISH<br/>OSWAL</h1>
+                    <p className="hero-quote">Designing ideas into meaningful visual stories.</p>
+                </div>
+            </section>
 
-            {/* Badge - Moved to home-page level */}
-            <motion.div
-                className="hero-badge"
-                initial={{ scale: 0, rotate: -20 }}
-                animate={{ scale: 1, rotate: -5 }}
-                whileHover={{
-                    scale: 1.1,
-                    rotate: 0,
-                    boxShadow: "0 0 30px rgba(255, 182, 217, 0.6)"
-                }}
-                transition={{ duration: 0.6, delay: 0.6, type: "spring" }}
-            >
-                <span className="badge-text">design<br />portfolio</span>
-            </motion.div>
-
-            <div className="home-container">
-                {/* Hero Section */}
-                <section className="hero-section">
-                    <div className="hero-grid">
-
-                        {/* ============================================
-                            LEFT COLUMN (Column 1)
-                            Row 1: I'M
-                            Row 2: Left Deco
-                            ============================================ */}
-
-                        {/* I'M - Row 2, Col 1 */}
-                        <motion.span
-                            className="hero-text-im"
-                            initial={{ x: -100, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            whileHover={{
-                                scale: 1.05,
-                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
-                            }}
-                            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            I'M
-                        </motion.span>
-
-                        {/* ============================================
-                            CENTER COLUMN (Column 2)
-                            Spans all rows: Image
-                            ============================================ */}
-
-                        {/* Central Image - Spans Row 1-3, Col 2 */}
-                        <motion.div
-                            className="hero-image-container"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            whileHover={{
-                                scale: 1.03,
-                                boxShadow: "0 30px 70px rgba(255, 182, 217, 0.4), 0 0 40px rgba(255, 182, 217, 0.2)"
-                            }}
-                            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <img src="/assets/photo/homepage.JPG" alt="Kashish Oswal" className="hero-image" />
-                        </motion.div>
-
-                        {/* ============================================
-                            RIGHT COLUMN (Column 3)
-                            Row 1: KASHISH
-                            Row 2: Intro
-                            ============================================ */}
-
-                        {/* KASHISH - Row 2, Col 3 */}
-                        <motion.span
-                            className="hero-text-name"
-                            initial={{ x: 100, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            whileHover={{
-                                scale: 1.05,
-                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
-                            }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            KASHISH
-                        </motion.span>
-
-                        {/* Intro Paragraph - Row 3, Col 3 */}
-                        <motion.div
-                            className="hero-intro"
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                        >
-                            <p>
-                                I'm a Visual Communication Design student passionate about creating clear, engaging visual systems.
-                                My work spans graphic and digital design, with a focus on typography, layout, and interface visuals.
-                            </p>
-
-                            <div className="hero-decoration">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 0L24 16L40 20L24 24L20 40L16 24L0 20L16 16L20 0Z" fill="#FFB6D9" />
-                                </svg>
-                            </div>
-                        </motion.div>
-
-                        {/* HELLO - Moved to index 3 (after hero-intro) */}
-                        <motion.h1
-                            className="hero-text-hello"
-                            initial={{ y: 100, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            whileHover={{
-                                scale: 1.05,
-                                textShadow: "0 0 40px rgba(255, 182, 217, 0.8)"
-                            }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            HELLO
-                        </motion.h1>
-
-                    </div>
-                </section>
-
-                {/* 3D Palette Section - Preserved */}
-                <motion.section
-                    className="palette-section"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true, amount: 0.1 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    <motion.div
-                        initial={{ y: 60, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, amount: 0.1 }}
-                        transition={{ delay: 0.2, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                        <Palette3DScene visible={true} onNavigate={navigate} />
-                    </motion.div>
-                </motion.section>
+            {/* ==================== MARQUEE SCROLLING STRIP ==================== */}
+            <div className="marquee-strip">
+                <div className="marquee-content">
+                    <span>VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • </span>
+                    <span>VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • VISUAL DESIGNER • </span>
+                </div>
             </div>
+
+            {/* ==================== SECTION 2: DESIGN PHILOSOPHY ==================== */}
+            <motion.section
+                className="philosophy-section"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                <div className="philosophy-grid">
+                    {/* Left Column - Badge + Image */}
+                    <motion.div
+                        className="philosophy-image"
+                        variants={section2ImageVariant}
+                    >
+                        <div className="portfolio-badge">
+                            <span>design</span>
+                            <br />
+                            <span>portfolio</span>
+                        </div>
+                        <img 
+                            src="/assets/photo/kashish-photo.png" 
+                            alt="Kashish Oswal Design Work"
+                            className="philosophy-img"
+                        />
+                    </motion.div>
+
+                    {/* Right Column - Text */}
+                    <motion.div
+                        className="philosophy-text"
+                        variants={section2TextVariant}
+                    >
+                        <span className="philosophy-label">About</span>
+
+                        <h2 className="philosophy-heading">
+                            Designing ideas into meaningful visual experiences
+                        </h2>
+
+                        <p className="philosophy-body">
+                            I'm Kashish, a Visual Communication Design student at MIT-WPU with a passion for creating thoughtful visual experiences.
+                        </p>
+
+                        <p className="philosophy-body">
+                            My work explores branding, editorial design, packaging, and digital interfaces. I enjoy translating ideas into clear and expressive visual systems that communicate effectively and creatively.
+                        </p>
+
+                        <Link to="/about" className="read-more-link">
+                            <span>Read more</span>
+                            <motion.span
+                                className="arrow"
+                                whileHover={{ x: 4 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                →
+                            </motion.span>
+                        </Link>
+                    </motion.div>
+                </div>
+            </motion.section>
         </div>
     )
 }

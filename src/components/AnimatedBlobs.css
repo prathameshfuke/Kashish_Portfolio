@@ -17,7 +17,7 @@
 .blob-1 {
     width: 500px;
     height: 500px;
-    background: var(--pink-light);
+    background: var(--accent-red);
     top: -10%;
     right: -10%;
     animation-delay: 0s;
@@ -35,7 +35,7 @@
 .blob-3 {
     width: 350px;
     height: 350px;
-    background: var(--pink-soft);
+    background: var(--accent-blue);
     top: 50%;
     right: 10%;
     animation-delay: -10s;

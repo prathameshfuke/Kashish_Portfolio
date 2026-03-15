@@ -1,4 +1,134 @@
-/* Minimal App-specific overrides */
+/* App Navigation Styling */
 .app {
     min-height: 100vh;
+}
+
+/* Main Navigation Bar */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(246, 243, 238, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    padding: 12px 40px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    flex-wrap: wrap;
+    color: #111111 !important;
+}
+
+/* Home Link Button */
+.nav > a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: #111111 !important;
+    background: rgba(230, 57, 70, 0.08);
+    border: 1.5px solid rgba(230, 57, 70, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.nav > a:hover {
+    color: #F6F3EE !important;
+    background: #E63946;
+    border-color: #E63946;
+    transform: scale(1.05);
+}
+
+.nav > a.active {
+    color: #F6F3EE !important;
+    background: #E63946;
+    border-color: #E63946;
+}
+
+/* Nav Links Container */
+.nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #111111 !important;
+}
+
+/* Individual Nav Link Buttons */
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #111111 !important;
+    background: rgba(230, 57, 70, 0.08);
+    border: 1.5px solid rgba(230, 57, 70, 0.2);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #F6F3EE !important;
+    background: #E63946;
+    border-color: #E63946;
+    transform: scale(1.05);
+}
+
+.nav-link.active {
+    color: #F6F3EE !important;
+    background: #E63946;
+    border-color: #E63946;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .nav {
+        padding: 0 24px;
+        gap: 24px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        padding: 0 20px;
+        height: 56px;
+        gap: 16px;
+    }
+
+    .nav > a {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
 }

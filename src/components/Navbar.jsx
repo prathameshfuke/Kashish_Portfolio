@@ -57,8 +57,7 @@ function Navbar() {
                             scrollToSection('home')
                         }}
                     >
-                        <span className="logo-text">Kashish</span>
-                        <span className="logo-sparkle">✨</span>
+                        Kashish Oswal
                     </a>
 
                     <div className="navbar-links">
@@ -98,8 +97,7 @@ function Navbar() {
             {/* Mobile Menu */}
             <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
                 <div className="mobile-menu-header">
-                    <span className="logo-text">Kashish</span>
-                    <span className="logo-sparkle">✨</span>
+                    Kashish Oswal
                 </div>
                 <div className="mobile-menu-links">
                     {navLinks.map((link, index) => (

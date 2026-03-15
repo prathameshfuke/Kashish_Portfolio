@@ -26,15 +26,15 @@
 }
 
 .filter-btn:hover {
-    border-color: var(--pink-light);
-    color: var(--black);
+    border-color: var(--accent-red);
+    color: var(--text);
 }
 
 .filter-btn.active {
-    background: var(--gradient-sunset);
+    background: var(--accent-red);
     border-color: transparent;
-    color: var(--black);
-    box-shadow: var(--shadow-pink);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
 }
 
 /* Counter */
