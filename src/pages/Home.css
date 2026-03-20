@@ -1,275 +1,608 @@
 /* ============================================
    HOMEPAGE
    ============================================ */
-
 .home-page {
     background: var(--bg);
+    padding-top: 96px; /* Account for blue navbar */
 }
 
 /* ============================================
-   SECTION 1: HERO
+   SECTION 1: HERO / ABOUT PREVIEW
    ============================================ */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+.hero-section {
     background: #F6F3EE;
-}
-
-.hero-bg-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    z-index: 1;
-    mask-image: linear-gradient(to left, black 40%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to left, black 40%, transparent 100%);
-}
-
-.hero-text {
-    position: absolute;
-    bottom: 8%;
-    left: 80px;
-    z-index: 10;
-}
-
-.hero-label {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #E63946;
-    margin-bottom: 16px;
-}
-
-.hero-name {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: clamp(64px, 10vw, 140px);
-    line-height: 0.9;
-    letter-spacing: -0.02em;
-    color: #E63946;
-    margin-bottom: 24px;
-}
-
-.hero-quote {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(15px, 1.5vw, 20px);
-    color: rgba(17, 17, 17, 0.5);
-    max-width: 400px;
-}
-
-/* ============================================
-   MARQUEE SCROLLING STRIP
-   ============================================ */
-.marquee-strip {
-    width: 100%;
-    background: var(--accent-red);
-    color: #FFFFFF;
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 14px 0;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.marquee-content {
+    padding: 60px 60px 80px;
+    min-height: calc(100vh - 96px);
     display: flex;
-    gap: 0;
-    animation: marquee 18s linear infinite;
-    will-change: transform;
-}
-
-.marquee-content span {
-    flex-shrink: 0;
-    padding-right: 0;
-    color: #FFFFFF;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* ============================================
-   SECTION 2: DESIGN PHILOSOPHY / ABOUT PREVIEW
-   ============================================ */
-.philosophy-section {
-    background: #6D7CF7;
-    width: 100%;
-    padding: 100px 80px;
-}
-
-.philosophy-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: var(--space-2xl);
     align-items: center;
 }
 
-/* Left Column - Badge + Polaroid / Image */
-.philosophy-image {
+.hero-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* Left column */
+.hero-left {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 16px;
+    gap: 20px;
 }
 
-/* Portfolio Badge above polaroid */
+/* Portfolio badge pill */
 .portfolio-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #FFFFFF;
+    border: 1.5px solid #111111;
     border-radius: 999px;
-    padding: 10px 24px;
-    cursor: default;
-    background: transparent;
-    transition: background 0.2s ease;
-    margin-bottom: 20px;
-}
-
-.portfolio-badge:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.portfolio-badge span {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.3;
-    text-align: center;
+    padding: 8px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: lowercase;
-    letter-spacing: 0.02em;
+    color: #111111;
+    background: transparent;
+    align-self: flex-start;
 }
 
-.philosophy-img {
+.hero-main-img {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: 2px;
+    object-position: center top;
     display: block;
+    border-radius: 4px;
 }
 
-/* Right Column - Text */
-.philosophy-text {
+/* Right column */
+.hero-right {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: 0;
 }
 
-.philosophy-label {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    opacity: 0.7;
-    display: block;
-    margin-bottom: var(--space-sm);
-}
-
-.philosophy-heading {
-    font-family: var(--font-heading);
-    font-size: clamp(28px, 4vw, 44px);
+.hero-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6.5vw, 96px);
     font-weight: 700;
-    color: #FFFFFF;
-    line-height: 1.2;
-    margin: 0;
-    padding: 0;
+    line-height: 1.05;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+    color: #E63946; /* Explicitly red as per reference */
 }
 
-.philosophy-body {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.75;
-    margin: 0;
-    padding: 0;
+.hero-line-red {
+    color: #E63946;
+}
+
+.hero-line-blue {
+    font-family: 'Style Script', cursive;
+    color: #6D7CF7;
+    display: inline-block;
+    font-size: 1.25em;
+    font-weight: 400;
+    line-height: 0.8;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.hero-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; /* Slightly larger as per reference */
+    color: #111111;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    max-width: 600px;
 }
 
 .read-more-link {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-family: var(--font-body);
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #E63946;
     text-decoration: underline;
-    text-decoration-color: #FFFFFF;
-    margin-top: var(--space-lg);
+    text-underline-offset: 3px;
+    margin-top: 16px;
     width: fit-content;
+    cursor: pointer;
     transition: opacity 0.2s ease;
 }
 
 .read-more-link:hover {
-    opacity: 0.7;
-    color: #FFFFFF;
+    opacity: 0.75;
 }
 
-.read-more-link .arrow {
+.read-more-arrow {
     display: inline-block;
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   SECTION 2: RED MARQUEE STRIP
    ============================================ */
+.marquee-strip {
+    width: 100%;
+    background: #E63946;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 20s linear infinite;
+    will-change: transform;
+}
+
+.marquee-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    line-height: 40px;
+    padding-right: 0;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-33.333%);
+    }
+}
+
+/* ============================================
+   SECTION 3: FEATURED WORK
+   ============================================ */
+.featured-section {
+    background: #6D7CF7;
+    padding: 40px 0 0 0;
+}
+
+.featured-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(64px, 10vw, 140px);
+    color: #FFC857;
+    text-align: left;
+    padding: 0 60px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+}
+
+/* Carousel wrapper (arrows + outer) */
+.featured-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 40px 0;
+    position: relative;
+}
+
+/* Arrow buttons */
+.featured-arrow {
+    flex-shrink: 0;
+    width: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    height: 100%;
+    padding: 0 12px;
+    line-height: 1;
+}
+
+.featured-arrow:hover:not(:disabled) {
+    color: #FFFFFF;
+}
+
+.featured-arrow:disabled {
+    opacity: 0.25;
+    cursor: default;
+}
+
+/* Outer container — clips track */
+.featured-carousel-outer {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Track — flex row of slides */
+.featured-carousel-track {
+    display: flex;
+    gap: 24px;
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Individual slide */
+.featured-slide {
+    flex-shrink: 0;
+    min-width: 65%; /* fallback before JS computes width */
+}
+
+.featured-slide-inner {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.featured-slide-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.featured-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.featured-slide-inner:hover .featured-slide-img {
+    transform: scale(1.04);
+}
+
+.featured-slide-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.featured-view-link {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFC857;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-align: center;
+    transition: opacity 0.2s ease;
+}
+
+.featured-view-link:hover {
+    opacity: 0.8;
+}
+
+/* Behance row */
+.behance-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 32px 60px 48px;
+    flex-wrap: wrap;
+}
+
+.behance-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.behance-link:hover {
+    opacity: 0.8;
+}
+
+.behance-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.behance-visit-btn {
+    border: 1.5px solid #FFFFFF;
+    border-radius: 999px;
+    padding: 8px 20px;
+    color: #FFFFFF;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.behance-visit-btn:hover {
+    background: #FFFFFF;
+    color: #6D7CF7;
+}
+
+/* ============================================
+   SECTION 4: CONTACT / FOOTER (homepage only)
+   ============================================ */
+.home-contact {
+    background: #F6F3EE;
+    padding: 80px 60px;
+}
+
+.home-contact-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.home-contact-divider {
+    width: 1px;
+    background: rgba(17, 17, 17, 0.1);
+    align-self: stretch;
+    min-height: 200px;
+}
+
+/* Left column */
+.home-contact-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.home-contact-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 3.5vw, 40px);
+    font-weight: 700;
+    color: #E63946;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.home-contact-input {
+    width: 100%;
+    padding: 16px 20px;
+    background: #FFC857;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #111111;
+    outline: none;
+    margin-bottom: 16px;
+    transition: opacity 0.2s ease;
+}
+
+.home-contact-input::placeholder {
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.home-contact-input:focus {
+    opacity: 0.9;
+    box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.3);
+}
+
+.home-contact-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #E63946;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 0;
+    width: fit-content;
+    transition: opacity 0.2s ease;
+}
+
+.home-contact-submit:hover {
+    opacity: 0.75;
+}
+
+/* Right column */
+.home-contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.contact-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E63946;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact-social-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+}
+
+.contact-social-icon:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.contact-behance-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Contain to avoid cropping brand logos */
+}
+
+.contact-social-row svg, 
+.contact-social-row img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #6D7CF7;
+    margin-bottom: 0;
+}
+
+.contact-email {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #6D7CF7;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+    word-break: break-all;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .hero-section {
+        padding: 60px 40px;
+    }
+
+    .hero-grid {
+        gap: 40px;
+    }
+
+    .featured-heading {
+        padding: 0 40px;
+    }
+
+    .behance-row {
+        padding: 32px 40px 48px;
+    }
+
+    .home-contact {
+        padding: 60px 40px;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero-bg-image {
-        width: 100%;
-        height: 55%;
-        top: 0;
-        mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    .hero-section {
+        padding: 48px 24px;
+        min-height: auto;
     }
 
-    .hero-text {
-        bottom: 6%;
-        left: 24px;
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    .hero-name {
-        font-size: clamp(48px, 13vw, 72px);
+    .hero-left {
+        align-items: center;
     }
 
-    .philosophy-section {
+    .polaroid-frame {
+        max-width: 260px;
+        transform: rotate(-1.5deg);
+    }
+
+    .featured-heading {
+        padding: 0 24px;
+    }
+
+    .featured-carousel-wrapper {
+        padding: 24px 0;
+    }
+
+    .featured-arrow {
+        width: 44px;
+        font-size: 32px;
+        padding: 0 6px;
+    }
+
+    .behance-row {
+        padding: 24px 24px 40px;
+    }
+
+    .home-contact {
         padding: 60px 24px;
     }
 
-    .philosophy-grid {
+    .home-contact-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
+        gap: 0;
     }
 
-    .philosophy-img {
-        aspect-ratio: 1 / 1;
+    .home-contact-divider {
+        display: none;
+    }
+
+    .home-contact-right {
+        margin-top: 48px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(17, 17, 17, 0.1);
     }
 }
 
 @media (max-width: 480px) {
-    .philosophy-heading {
-        font-size: clamp(20px, 5vw, 32px);
+    .hero-heading {
+        font-size: clamp(28px, 8vw, 44px);
+    }
+
+    .hero-line-blue {
+        font-size: clamp(32px, 9vw, 50px);
     }
 }

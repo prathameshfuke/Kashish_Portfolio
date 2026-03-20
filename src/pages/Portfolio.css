@@ -1,0 +1,380 @@
+/* ============================================
+   PORTFOLIO PAGE (renamed from Projects)
+   ============================================ */
+.projects-page {
+    background: #F6F3EE;
+    padding-top: 120px;
+    padding-bottom: var(--space-2xl);
+}
+
+.projects-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 5;
+}
+
+.projects-container .page-title {
+    margin-bottom: var(--space-lg);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent-red);
+}
+
+/* ── Project showcase block ── */
+.project-showcase {
+    padding: 60px 40px;
+    background: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 24px rgba(17, 17, 17, 0.05);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: auto; /* Let it grow naturally */
+}
+
+/* Ensure top 4 projects have same structure and spacing */
+.project-header {
+    text-align: center;
+    margin-bottom: 32px; /* Increased bottom margin for better spacing */
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Uniform spacing between header elements */
+}
+
+.project-category-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #E63946;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #111111;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.project-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #666666;
+    margin: 0;
+}
+
+.project-behance-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 10px 24px;
+    background: #0057ff;
+    color: #ffffff;
+    border-radius: 50px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 87, 255, 0.2);
+}
+
+.project-behance-badge:hover {
+    background: #0045c7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 87, 255, 0.3);
+}
+
+.project-link-note {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    color: #888888;
+    font-style: italic;
+}
+
+.project-description {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    flex-grow: 0;
+    min-height: 80px; /* Same space for descriptions */
+}
+
+.project-description p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.15rem; /* Increased text size a bit */
+    line-height: 1.8;
+    color: #111111;
+}
+
+.project-description strong {
+    color: #E63946;
+    font-weight: 600;
+}
+
+/* ── Carousel ── */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 32px 0 16px 0;
+}
+
+.carousel-viewport {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #F6F3EE;
+    position: relative;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* DO NOT CUT OFF mockups */
+    display: block;
+    padding: 10px;
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: rgba(230, 57, 70, 0.1);
+    color: #111111;
+    font-size: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background: #E63946;
+    color: #F6F3EE;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px auto 32px auto;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(17, 17, 17, 0.15);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.dot.active {
+    background: #E63946;
+    transform: scale(1.2);
+}
+
+/* ── New single-image project blocks ── */
+.new-project-img-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.new-project-img-outer {
+    border-radius: 16px;
+    overflow: hidden;
+    margin: var(--space-lg) 0;
+}
+
+.new-project-img-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+}
+
+.new-project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.new-project-img-link:hover .new-project-img {
+    transform: scale(1.03);
+}
+
+/* ── Behance CTA at bottom ── */
+.portfolio-behance-cta {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--space-xl);
+}
+
+.portfolio-behance-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #111111;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-behance-link:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 87, 255, 0.1);
+}
+
+.behance-accent {
+    color: #0057ff;
+    font-weight: 600;
+}
+
+.portfolio-behance-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.other-work-section {
+    margin-top: 100px;
+    padding: 60px 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.other-work-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--accent-red);
+    margin-bottom: 48px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.other-work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 60px; /* Increased gap spacing for cards */
+}
+
+/* Redesigned Grid Item to match reference exactly */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap for proper spacing between image and text */
+    background: transparent;
+}
+
+.grid-project-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Better for various mockup shapes */
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: #f8f8f8;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.grid-project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* DO NOT CUT OFF mockups */
+    display: block;
+    padding: 10px; /* Internal margin for "contained" look */
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.grid-item:hover .grid-project-img {
+    transform: scale(1.04);
+}
+
+.grid-project-footer {
+    text-align: left;
+    padding: 4px 0;
+}
+
+.grid-project-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #E63946;
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .other-work-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container {
+        flex-direction: column;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .carousel-viewport {
+        min-height: 250px;
+        width: 100%;
+    }
+
+    .carousel-image {
+        max-height: 300px;
+    }
+
+    .portfolio-behance-link {
+        font-size: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+}
