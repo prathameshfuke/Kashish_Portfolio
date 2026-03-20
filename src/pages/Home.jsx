@@ -10,7 +10,7 @@ import websiteDesign from '../assets/website-design.png'
 import typeZine from '../assets/type-zine.png'
 import jainismBook from '../assets/jainism-book.png'
 import imagicaa from '../assets/imagicaa.png'
-import behanceLogo from '../assets/behance.webp'
+import behanceLogo from '../assets/behancelogo.jpg'
 
 import './Home.css'
 
@@ -46,6 +46,7 @@ function LinkedInIcon({ size = 36 }) {
 ───────────────────────────────────────────── */
 function FeaturedCarousel({ projects }) {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [isHovered, setIsHovered] = useState(false)
     const outerRef = useRef(null)
     const [slideWidth, setSlideWidth] = useState(600) // safe initial estimate
 
@@ -70,11 +71,12 @@ function FeaturedCarousel({ projects }) {
     const next = () => setCurrentIndex((i) => (i === maxIndex ? 0 : i + 1))
 
     useEffect(() => {
+        if (isHovered) return
         const timer = setInterval(() => {
             setCurrentIndex((i) => (i === maxIndex ? 0 : i + 1))
         }, 3000)
         return () => clearInterval(timer)
-    }, [maxIndex])
+    }, [maxIndex, isHovered])
 
     return (
         <div className="featured-carousel-wrapper">
@@ -88,9 +90,25 @@ function FeaturedCarousel({ projects }) {
             </button>
 
             {/* Track container */}
-            <div className="featured-carousel-outer" ref={outerRef}>
+            <div 
+                className="featured-carousel-outer" 
+                ref={outerRef}
+                onPointerEnter={() => setIsHovered(true)}
+                onPointerLeave={() => setIsHovered(false)}
+            >
                 <motion.div
                     className="featured-carousel-track"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={1}
+                    onDragEnd={(e, { offset, velocity }) => {
+                        const swipeThreshold = 50;
+                        if (offset.x < -swipeThreshold || velocity.x < -500) {
+                            next();
+                        } else if (offset.x > swipeThreshold || velocity.x > 500) {
+                            prev();
+                        }
+                    }}
                     animate={{ x: -(currentIndex * (slideWidth + GAP)) }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
@@ -149,6 +167,14 @@ function FeaturedCarousel({ projects }) {
    Home Page
 ───────────────────────────────────────────── */
 function Home() {
+    const [contactName, setContactName] = useState('')
+
+    const handleContactSubmit = () => {
+        const subject = encodeURIComponent(`Hello from ${contactName || 'a visitor'}`);
+        const body = encodeURIComponent("Hi Kashish,\n\nI'd like to create something meaningful together!");
+        window.location.href = `mailto:kashishoswal.work@gmail.com?subject=${subject}&body=${body}`;
+    }
+
     return (
         <div className="home-page">
             {/* ══════════════════════════════════
@@ -247,12 +273,15 @@ function Home() {
                             placeholder="Your Name"
                             className="home-contact-input"
                             aria-label="Your name"
+                            value={contactName}
+                            onChange={(e) => setContactName(e.target.value)}
                         />
                         <motion.button
                             className="home-contact-submit"
                             whileHover={{ x: 4 }}
                             transition={{ duration: 0.2 }}
                             aria-label="Submit contact form"
+                            onClick={handleContactSubmit}
                         >
                             Submit →
                         </motion.button>

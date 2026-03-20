@@ -242,7 +242,7 @@ function About() {
                         viewport={{ once: true, amount: 0.1 }}
                         variants={scrollSectionVariant}
                     >
-                        <h2 className="section-title">Work Experience</h2>
+                        <h2 className="section-title" style={{ color: 'var(--accent-blue)' }}>Work Experience</h2>
                         <div className="timeline-wrapper">
                             <div className="timeline-line" />
                             {experiences.map((exp, index) => (

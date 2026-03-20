@@ -240,6 +240,7 @@
 
 .role-text {
     flex: 1;
+    color: var(--accent-blue);
 }
 
 .timeline-company {
@@ -295,7 +296,7 @@
 }
 
 .timeline-content:hover .timeline-role {
-    color: #E63946;
+    color: var(--accent-blue);
     transition: color 0.2s ease;
 }
 

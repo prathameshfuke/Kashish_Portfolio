@@ -10,7 +10,7 @@ import websiteDesign from '../assets/website-design.png'
 import typeZine from '../assets/type-zine.png'
 import jainismBook from '../assets/jainism-book.png'
 import imagicaa from '../assets/imagicaa.png'
-import behanceLogo from '../assets/behance.webp'
+import behanceLogo from '../assets/behancelogo.jpg'
 
 import './Portfolio.css'
 
@@ -397,7 +397,7 @@ function Portfolio() {
                             link="https://www.behance.net/gallery/218092245/Webpages-Design"
                         />
                         <NewProjectBlock
-                            title="SAR Brochure Design"
+                            title="SAAR Brochure Design"
                             image={saarBrochure}
                             link="https://www.behance.net/gallery/241963101/Saar-Brochure-Design"
                         />
@@ -418,6 +418,11 @@ function Portfolio() {
                 </div>
 
             </div>
+
+            {/* ── Fixed Floating Behance Button ── */}
+            <a href="https://www.behance.net/kashishoswal1" target="_blank" rel="noopener noreferrer" className="behance-fab" aria-label="Visit Behance Profile">
+                <img src={behanceLogo} alt="Behance" />
+            </a>
         </motion.div>
     )
 }
