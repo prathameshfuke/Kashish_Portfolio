@@ -66,8 +66,15 @@ function FeaturedCarousel({ projects }) {
     const GAP = 24
     const maxIndex = projects.length - 1
 
-    const prev = () => setCurrentIndex((i) => Math.max(0, i - 1))
-    const next = () => setCurrentIndex((i) => Math.min(maxIndex, i + 1))
+    const prev = () => setCurrentIndex((i) => (i === 0 ? maxIndex : i - 1))
+    const next = () => setCurrentIndex((i) => (i === maxIndex ? 0 : i + 1))
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((i) => (i === maxIndex ? 0 : i + 1))
+        }, 3000)
+        return () => clearInterval(timer)
+    }, [maxIndex])
 
     return (
         <div className="featured-carousel-wrapper">
@@ -75,7 +82,6 @@ function FeaturedCarousel({ projects }) {
             <button
                 className="featured-arrow prev"
                 onClick={prev}
-                disabled={currentIndex === 0}
                 aria-label="Previous project"
             >
                 ‹
@@ -90,24 +96,27 @@ function FeaturedCarousel({ projects }) {
                 >
                     {projects.map((p, i) => {
                         const isPlaceholder = p.link === '#'
+                        const imageElement = <img src={p.image} alt={p.title} className="featured-slide-img" />
+                        
                         const content = (
                             <div className="featured-slide-inner">
-                                <div className="featured-slide-img-wrapper">
-                                    <img src={p.image} alt={p.title} className="featured-slide-img" />
-                                </div>
+                                {isPlaceholder ? (
+                                    <div className="featured-slide-img-wrapper">
+                                        {imageElement}
+                                    </div>
+                                ) : (
+                                    <a
+                                        href={p.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="featured-slide-img-wrapper"
+                                        aria-label={`View ${p.title} on Behance`}
+                                    >
+                                        {imageElement}
+                                    </a>
+                                )}
                                 <div className="featured-slide-info">
                                     <p className="featured-slide-title">{p.title}</p>
-                                    {!isPlaceholder && (
-                                        <a
-                                            href={p.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="featured-view-link"
-                                            onClick={(e) => e.stopPropagation()}
-                                        >
-                                            View Work →
-                                        </a>
-                                    )}
                                 </div>
                             </div>
                         )
@@ -128,7 +137,6 @@ function FeaturedCarousel({ projects }) {
             <button
                 className="featured-arrow next"
                 onClick={next}
-                disabled={currentIndex === maxIndex}
                 aria-label="Next project"
             >
                 ›
@@ -155,7 +163,6 @@ function Home() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        <div className="portfolio-badge">design portfolio</div>
                         <img
                             src="/assets/photo/kashish-photo.png"
                             alt="Kashish Oswal"
@@ -171,12 +178,14 @@ function Home() {
                         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <h1 className="hero-heading">
-                            <span className="hero-line-red">Designing </span>
-                            <span className="hero-line-blue">Ideas</span>
+                            <span style={{ whiteSpace: 'nowrap' }}>
+                                <span className="hero-line-red">Designing </span>
+                                <span className="hero-line-blue">Ideas</span>
+                            </span>
                             <br />
-                            <span className="hero-line-red">into meaningful</span>
+                            <span style={{ whiteSpace: 'nowrap' }} className="hero-line-red">into meaningful</span>
                             <br />
-                            <span className="hero-line-red">visual stories.</span>
+                            <span style={{ whiteSpace: 'nowrap' }} className="hero-line-red">visual stories.</span>
                         </h1>
 
                         <p className="hero-body">
