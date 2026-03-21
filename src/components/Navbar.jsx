@@ -32,6 +32,14 @@ function Navbar() {
                             {link.label}
                         </NavLink>
                     ))}
+                    <a
+                        href="https://drive.google.com/drive/folders/1vJV521JhgAIW7pPEGVN_Ue35ve2O_s90?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-pill nav-cv-btn"
+                    >
+                        CV
+                    </a>
                 </div>
 
                 <button
@@ -70,6 +78,14 @@ function Navbar() {
                             {link.label}
                         </NavLink>
                     ))}
+                    <a
+                        href="https://drive.google.com/drive/folders/1vJV521JhgAIW7pPEGVN_Ue35ve2O_s90?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mobile-nav-link nav-cv-btn"
+                    >
+                        CV
+                    </a>
                 </div>
             </div>
         </>

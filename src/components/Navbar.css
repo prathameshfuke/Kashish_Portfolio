@@ -70,6 +70,18 @@
     color: #111111;
 }
 
+/* CV button — always highlighted */
+.nav-cv-btn {
+    background: var(--highlight);
+    color: #111111;
+    font-weight: 700;
+}
+
+.nav-cv-btn:hover {
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
 /* Hamburger */
 .hamburger {
     display: none;
